@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Material Icons-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+    
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="grid-container">
+        
+        <!-- Top Bar Navigation -->
+        <nav class="topbar">
+            <div class="topbar-left">
+                
+                <img src="county-mock-logo.png" class="topbar-title" style="height:48px; object-fit:contain;">
+            </div>
+            <ul class="topbar-menu">
+                <li><a href="index.html" class="dropdown-link">Home</a></li>
+                <li>Business Resource Hub
+                    <ul class="dropdown-menu">
+                        <li><a href="small-business.html" class="dropdown-link">Small Business Resources</a></li>
+                        <li><a href="agriculture-business.html" class="dropdown-link">Agriculture Resources</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Support Tools
+                    <ul class="dropdown-menu">
+                        <li><a href="support-tools.html" class="dropdown-link">Find a Business</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Training & Skills Development
+                    <ul class="dropdown-menu">
+                        <li><a href="training-calendar.html" class="dropdown-link">Training Calendar</a></li>
+                    </ul>
+                </li>
+                <li><a href="local-resources.html" style="text-decoration: none;">Local Resources</a></li>
+                <li class="dropdown">Job Supports
+                    <ul class="dropdown-menu">
+                        <li><a href="job-ready-tools.html" class="dropdown-link">Job Ready Tools</a></li>
+                        <li><a href="employer-listing.html" class="dropdown-link">Employer Listing</a></li>
+                        <li><a href="job-listing.html" class="dropdown-link">Job Board</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Support Centre
+                    <ul class="dropdown-menu">
+                        <li><a href="ask-Questions.html" class="dropdown-link">Ask a Question</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Top Bar -->
+        <div class="mustard-banner"></div>
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner1">
+            <h1>Welcome to the County Dashboard</h1>
+            <p>Your one-stop hub for business, agriculture, training, and local resources.</p>
+        </section>
+        <!-- End Welcome Banner -->
+
+        <!-- Quick Snapshot -->
+        <section class="quick-snapshot-list">
+            <h2 class="snapshot-section-title">News</h2>
+            <div class="snapshot-banner">
+                <div class="snapshot-box">
+                    <!-- <span class="material-icons-outlined snapshot-icon">folder</span>
+                    <div class="snapshot-title">NEWS</div> -->
+                </div>
+                <div class="snapshot-box">
+                    <!-- <span class="material-icons-outlined snapshot-icon">folder</span>
+                    <div class="snapshot-title">News</div> -->
+                </div>
+                <div class="snapshot-box">
+                    <!-- <span class="material-icons-outlined snapshot-icon">folder</span>
+                    <div class="snapshot-title">News</div> -->
+                </div>
+                <div class="snapshot-box">
+                    <!-- <span class="material-icons-outlined snapshot-icon">folder</span>
+                    <div class="snapshot-title">News</div> -->
+                </div>
+            </div>
+        </section>
+        <!-- End Quick Snapshot -->
+
+        <!-- Quick Access Tiles -->
+        <section class="quick-snapshot-list">
+            <h2 class="snapshot-section-title">Quick Access</h2>
+            <div class="snapshot-banner">
+                <a href="small-business.html" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile">
+                        <div class="access-title">I'm a Small Business</div>
+                    </div>
+                </a>
+                <a href="agriculture-business.html" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile">
+                        <div class="access-title">I'm a Agriculture Business</div>
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile">
+                        <div class="access-title">I'm looking for Work or Training for Small Business</div>   
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile">
+                        <div class="access-title">I'm looking for Work or Training for Agriculture</div> 
+                    </div>
+                </a>
+                <a href="statistics-dashboard.html" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile">
+                        <div class="access-title">Statistics Dashboard</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <!-- End Quick Access Tiles -->
+
+            
+        
+    </div>
+
+    <!-- Bottom Bar -->
+    <footer class="bottombar">
+        <div class="bottombar-content">
+            <span>Contact Us: info@county.ca | (555) 123-4567 | County, AB</span>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

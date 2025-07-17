@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small Business Resources</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Top Bar Navigation -->
+        <nav class="topbar">
+            <div class="topbar-left">
+                <img src="county-mock-logo.png" class="topbar-title" style="height:48px; object-fit:contain;">
+            </div>
+            <ul class="topbar-menu">
+                <li><a href="index.html" class="dropdown-link">Home</a></li>
+                <li>Business Resource Hub
+                    <ul class="dropdown-menu">
+                        <li><a href="small-business.html" class="dropdown-link">Small Business Resources</a></li>
+                        <li><a href="agriculture-business.html" class="dropdown-link">Agriculture Resources</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Support Tools
+                    <ul class="dropdown-menu">
+                        <li><a href="support-tools.html" class="dropdown-link">Find a Business</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Training & Skills Development
+                    <ul class="dropdown-menu">
+                        <li><a href="training-calendar.html" class="dropdown-link">Training Calendar</a></li>
+                    </ul>
+                </li>
+                <li><a href="local-resources.html" class="dropdown-link">Local Resources</a></li>
+                <li class="dropdown">Job Supports
+                    <ul class="dropdown-menu">
+                        <li><a href="job-ready-tools.html" class="dropdown-link">Job Ready Tools</a></li>
+                        <li><a href="employer-listing.html" class="dropdown-link">Employer Listing</a></li>
+                        <li><a href="job-listing.html" class="dropdown-link">Job Board</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Support Centre
+                    <ul class="dropdown-menu">
+                        <li><a href="ask-Questions.html" class="dropdown-link">Ask a Question</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Top Bar -->
+        <div class="mustard-banner"></div>
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+            <h1>Ask a Question</h1>
+        </section>
+        <!-- End Welcome Banner -->
+
+        <!-- Your Small Business Resources content here -->
+         <div class="main-layout">
+            <!-- Main Content -->
+            <main class="main-content" id="main-content">
+                <section class="suggestion-box-section">
+                    <form class="suggestion-form">
+                        <label for="name" class="suggestion-label">Name:</label>
+                        <input type="text" id="name" name="name" class="suggestion-input" required>
+
+                        <label for="email" class="suggestion-label">Email:</label>
+                        <input type="email" id="email" name="email" class="suggestion-input" required>
+
+                        <label for="topic" class="suggestion-label">Topic:</label>
+                        <input type="text" id="topic" name="topic" class="suggestion-input" placeholder="e.g. Funding, Training, General" required>
+
+                        <label for="suggestion" class="suggestion-label">Message:</label>
+                        <textarea id="suggestion" name="suggestion" class="suggestion-textarea" rows="5" placeholder="Type your suggestion or question here..." required></textarea>
+
+                        <button type="submit" class="suggestion-submit">Submit</button>
+                    </form>
+                </section>
+
+                <div id="chatbot-fab">
+                    <span>💬</span>
+                </div>
+                <!-- Chatbot Popup -->
+                <div id="chatbot-popup">
+                    <div class="chatbot-container">
+                        <div id="chatbot-messages"></div>
+                        <form id="chatbot-form">
+                            <input type="text" id="chatbot-input" placeholder="Ask a question..." autocomplete="off" required>
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </main>
+        </div>
+        
+    </div>
+
+    <!-- Bottom Bar -->
+    <footer class="bottombar">
+        <div class="bottombar-content">
+            <span>Contact Us: info@county.ca | (555) 123-4567 | County, AB</span>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

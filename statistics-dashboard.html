@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small Business Resources</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Top Bar Navigation -->
+        <nav class="topbar">
+            <div class="topbar-left">
+                <img src="county-mock-logo.png" class="topbar-title" style="height:48px; object-fit:contain;">
+            </div>
+            <ul class="topbar-menu">
+                <li><a href="index.html" class="dropdown-link">Home</a></li>
+                <li>Business Resource Hub
+                    <ul class="dropdown-menu">
+                        <li><a href="small-business.html" class="dropdown-link">Small Business Resources</a></li>
+                        <li><a href="agriculture-business.html" class="dropdown-link">Agriculture Resources</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Support Tools
+                    <ul class="dropdown-menu">
+                        <li><a href="support-tools.html" class="dropdown-link">Find a Business</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Training & Skills Development
+                    <ul class="dropdown-menu">
+                        <li><a href="training-calendar.html" class="dropdown-link">Training Calendar</a></li>
+                    </ul>
+                </li>
+                <li><a href="local-resources.html" class="dropdown-link">Local Resources</a></li>
+                <li class="dropdown">Job Supports
+                    <ul class="dropdown-menu">
+                        <li><a href="job-ready-tools.html" class="dropdown-link">Job Ready Tools</a></li>
+                        <li><a href="employer-listing.html" class="dropdown-link">Employer Listing</a></li>
+                        <li><a href="job-listing.html" class="dropdown-link">Job Board</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Support Centre
+                    <ul class="dropdown-menu">
+                        <li><a href="ask-Questions.html" class="dropdown-link">Ask a Question</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Top Bar -->
+        <div class="mustard-banner"></div>
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+            <h1>Statistics Dashboard</h1>
+        </section>
+        <!-- End Welcome Banner -->
+
+        <!-- Your Small Business Resources content here -->
+         <div class="main-layout">
+            <!-- Main Content -->
+            <main class="main-content" id="main-content">
+                <div class="charts-grid">
+                    <div class="chart-cell">
+                        <canvas id="pyramidChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="laborMarketChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="buildingPermitChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="businessAreaChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="participationRateChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="unemploymentRateChart" width="900" height="600"></canvas>
+                    </div>
+                </div>
+  
+            </main>
+        </div>
+        
+    </div>
+
+    <!-- Bottom Bar -->
+    <footer class="bottombar">
+        <div class="bottombar-content">
+            <span>Contact Us: info@county.ca | (555) 123-4567 | County, AB</span>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</body>
+</html>
