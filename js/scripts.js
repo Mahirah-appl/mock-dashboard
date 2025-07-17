@@ -5,6 +5,17 @@ document.querySelectorAll('.dropdown-btn').forEach(btn => {
     });
 });
 
+/* TOPBAR NAVIGATION - HAMBURGER MENU */
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.topbar-hamburger');
+    const menu = document.querySelector('.topbar-menu');
+    if (hamburger && menu) {
+        hamburger.addEventListener('click', function () {
+            menu.classList.toggle('show');
+        });
+    }
+});
+
 /* BUSINESS RESOURCES HUB - SMALL BUSINESS RESOURCES  */
 document.addEventListener('DOMContentLoaded', function() {
     const startupLink = document.getElementById('startup-link');
