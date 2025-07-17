@@ -859,7 +859,7 @@ a[href="agriculture-business.html"] .access-tile {
     }
     .topbar-menu {
         display: none;
-        position: absolute;
+        /* position: absolute;
         top: 60px;
         left: 0;
         width: 100vw;
@@ -868,10 +868,11 @@ a[href="agriculture-business.html"] .access-tile {
         gap: 0;
         margin: 0;
         padding: 1rem 0;
-        z-index: 3000;
+        z-index: 3000; */
     }
     .topbar-menu.show {
         display: flex;
+        flex-direction: column;
     }
     .topbar-hamburger {
         display: flex;
