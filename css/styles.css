@@ -809,6 +809,18 @@ a[href="agriculture-business.html"] .access-tile {
     padding: 1rem;
 }
 
+.topbar-hamburger {
+    display: none;
+}
+
+/* SEARCHBAR IN ASK QUESTION */
+.dashboard-highlight mark {
+    background: #ffe066;
+    color: #222;
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
 
 /* ---------------- MEDIA QUERIES ---------------- */
 @media (max-width: 992px) {
@@ -859,7 +871,7 @@ a[href="agriculture-business.html"] .access-tile {
     }
     .topbar-menu {
         display: none;
-        /* position: absolute;
+        position: absolute;
         top: 60px;
         left: 0;
         width: 100vw;
@@ -868,11 +880,10 @@ a[href="agriculture-business.html"] .access-tile {
         gap: 0;
         margin: 0;
         padding: 1rem 0;
-        z-index: 3000; */
+        z-index: 3000;
     }
     .topbar-menu.show {
         display: flex;
-        flex-direction: column;
     }
     .topbar-hamburger {
         display: flex;
@@ -944,6 +955,20 @@ a[href="agriculture-business.html"] .access-tile {
         width: 38px;
         height: 38px;
         font-size: 1.2rem;
+    }
+    .dropdown-menu {
+        position: static;
+        background: none;
+        box-shadow: none;
+        display: none;
+        flex-direction: column;
+        padding-left: 1.5rem;
+    }
+    .dropdown.open > .dropdown-menu {
+        display: flex;
+    }
+    .dropdown {
+        position: static;
     }
 }
 
