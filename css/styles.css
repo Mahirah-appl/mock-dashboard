@@ -809,53 +809,111 @@ a[href="agriculture-business.html"] .access-tile {
     padding: 1rem;
 }
 
+
 /* ---------------- MEDIA QUERIES ---------------- */
-
-/* Medium <= 992px */
-
-@media screen and (max-width: 992px) {
-    .grid-container {
+@media (max-width: 900px) {
+    .charts-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: 0.2fr 3fr;
-        grid-template-areas:
-            "header"
-            "main";
+        grid-template-rows: auto;
+        gap: 1.5rem;
     }
-    
-    #sidebar {
-        display: none;
+    .success-story-section {
+        grid-template-columns: 1fr;
+        min-height: 300px;
     }
-
-    .menu-icon {
-        display: inline;
+    .success-story-image,
+    .success-story-image1 {
+        border-radius: 16px 16px 0 0;
+        min-height: 200px;
     }
-
-    .sidebar-title > span {
-        display: inline;
+    .success-story-content {
+        border-radius: 0 0 16px 16px;
+        max-width: 100%;
+        padding: 1rem;
+    }
+    .welcome-banner,
+    .welcome-banner1 {
+        padding: 6rem 0.5rem;
+        font-size: 2rem;
     }
 }
 
-
-/* Small <= 760px */
-
-@media screen and (max-width: 760px) {
-    .main-cards {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        margin-bottom: 0;
+@media (max-width: 600px) {
+    .topbar {
+        height: 70px;
+        font-size: 1rem;
+        padding: 0 2px;
     }
-
-    .charts {
-        grid-template-columns: 1fr;
-        margin-top: 30px;
+    .topbar-title {
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
     }
-}
-
-
-/* Extra Small <= 576px */
-
-@media screen and (max-width: 576px) {
-    .border-left {
-        display: none;
-    }    
+    .topbar-menu {
+        gap: 1rem;
+        margin-right: 0.5rem;
+        font-size: 0.95rem;
+    }
+    .charts-grid {
+        gap: 1rem;
+    }
+    .charts-grid canvas {
+        width: 98vw !important;
+        height: 300px !important;
+        border-radius: 8px;
+    }
+    .main-layout {
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-direction: column;
+    }
+    .calendar-container,
+    .events-list {
+        padding: 0.5rem;
+        min-width: 0;
+    }
+    .calendar-header h3 {
+        font-size: 1rem;
+    }
+    .calendar-table th,
+    .calendar-table td {
+        font-size: 0.9rem;
+        padding: 0.3rem;
+        width: 28px;
+        height: 28px;
+    }
+    .snapshot-section-title {
+        font-size: 1.1rem;
+        margin-left: 0.5rem;
+    }
+    .snapshot-box {
+        padding: 1rem 0.5rem;
+        height: 120px;
+        font-size: 0.95rem;
+    }
+    .snapshot-list {
+        gap: 1rem;
+    }
+    .success-story-section {
+        min-height: 200px;
+    }
+    .success-story-image,
+    .success-story-image1 {
+        min-height: 100px;
+    }
+    .success-story-content {
+        padding: 0.5rem;
+    }
+    #chatbot-popup {
+        width: 98vw;
+        right: 1vw;
+        bottom: 80px;
+        border-radius: 10px;
+    }
+    #chatbot-fab {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+    }
 }
