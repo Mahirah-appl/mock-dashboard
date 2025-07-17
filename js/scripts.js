@@ -7,6 +7,7 @@ document.querySelectorAll('.dropdown-btn').forEach(btn => {
 
 /* TOPBAR NAVIGATION - HAMBURGER MENU */
 document.addEventListener('DOMContentLoaded', function () {
+    // Hamburger menu toggle
     const hamburger = document.querySelector('.topbar-hamburger');
     const menu = document.querySelector('.topbar-menu');
     if (hamburger && menu) {
@@ -14,6 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
             menu.classList.toggle('show');
         });
     }
+
+    // Dropdown toggle for mobile
+    document.querySelectorAll('.dropdown').forEach(function(drop) {
+        drop.addEventListener('click', function(e) {
+            if (window.innerWidth <= 760) {
+                e.stopPropagation();
+                drop.classList.toggle('open');
+            }
+        });
+    });
 });
 
 /* BUSINESS RESOURCES HUB - SMALL BUSINESS RESOURCES  */
