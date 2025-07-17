@@ -946,10 +946,7 @@ a[href="agriculture-business.html"] .access-tile {
         font-size: 1.2rem;
     }
 }
-/* Hide hamburger on desktop */
-.topbar-hamburger {
-    display: none;
-}
+
 
 @media (max-width: 576px) {
     .topbar {
