@@ -25,16 +25,21 @@
                 
                 <img src="county-mock-logo.png" class="topbar-title" style="height:48px; object-fit:contain;">
             </div>
+            <!-- Place inside .topbar -->
+            <div class="topbar-hamburger">&#9776;</div>
             <ul class="topbar-menu">
                 <li><a href="index.html" class="dropdown-link">Home</a></li>
-                <li>Business Resource Hub
+                <li class="dropdown">Business Resource Hub
                     <ul class="dropdown-menu">
-                        <li><a href="small-business.html" class="dropdown-link">Small Business Resources</a></li>
-                        <li><a href="agriculture-business.html" class="dropdown-link">Agriculture Resources</a></li>
+                        <li><a href="#" class="dropdown-link">Small Business Resources</a></li>
+                        <li><a href="#" class="dropdown-link">Agriculture Resources</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">Support Tools
                     <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Agriculture Programs and Services</a></li>
+                        <li><a href="#" class="dropdown-link">Agri-Tech and Tools</a></li>
+                        <li><a href="#" class="dropdown-link">Connect with Experts</a></li>
                         <li><a href="support-tools.html" class="dropdown-link">Find a Business</a></li>
                     </ul>
                 </li>
@@ -43,17 +48,26 @@
                         <li><a href="training-calendar.html" class="dropdown-link">Training Calendar</a></li>
                     </ul>
                 </li>
-                <li><a href="local-resources.html" style="text-decoration: none;">Local Resources</a></li>
+                <li class="dropdown">Local Resources
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Sustainability and Workforce Projects</a></li>
+                        <li><a href="#" class="dropdown-link">Volunteer and Contribute</a></li>
+                        <li><a href="#" class="dropdown-link">Available Properties</a></li>
+                        <li><a href="#" class="dropdown-link">Community Infrastructure</a></li>
+                        <li><a href="#" class="dropdown-link">Zoning and Policy Information</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">Job Supports
                     <ul class="dropdown-menu">
-                        <li><a href="job-ready-tools.html" class="dropdown-link">Job Ready Tools</a></li>
-                        <li><a href="employer-listing.html" class="dropdown-link">Employer Listing</a></li>
+                        <li><a href="#" class="dropdown-link">Job Ready Tools</a></li>
+                        <li><a href="#" class="dropdown-link">Employer Listing</a></li>
                         <li><a href="job-listing.html" class="dropdown-link">Job Board</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">Support Centre
                     <ul class="dropdown-menu">
                         <li><a href="ask-Questions.html" class="dropdown-link">Ask a Question</a></li>
+                        <li><a href="#" class="dropdown-link">FAQs</a></li>
                     </ul>
                 </li>
             </ul>
@@ -69,8 +83,8 @@
         <!-- End Welcome Banner -->
 
         <!-- Quick Snapshot -->
-        <section class="quick-snapshot-list">
-            <h2 class="snapshot-section-title">News</h2>
+        <section class="news-snapshot-list">
+            <h2 class="snapshot-section-title">Economic News and Success Story</h2>
             <div class="snapshot-banner">
                 <div class="snapshot-box">
                     <!-- <span class="material-icons-outlined snapshot-icon">folder</span>
@@ -84,17 +98,18 @@
                     <!-- <span class="material-icons-outlined snapshot-icon">folder</span>
                     <div class="snapshot-title">News</div> -->
                 </div>
-                <div class="snapshot-box">
-                    <!-- <span class="material-icons-outlined snapshot-icon">folder</span>
-                    <div class="snapshot-title">News</div> -->
-                </div>
+                <a href="local-resources.html" style="text-decoration: none; color: inherit;">
+                    <div class="snapshot-box success-story-image">
+                        <div class="snapshot-title">Success Story of the Month</div>
+                    </div>
+                </a>
             </div>
         </section>
         <!-- End Quick Snapshot -->
 
         <!-- Quick Access Tiles -->
         <section class="quick-snapshot-list">
-            <h2 class="snapshot-section-title">Quick Access</h2>
+            <h2 class="snapshot-section-title">Resources/ Job Seekers</h2>
             <div class="snapshot-banner">
                 <a href="small-business.html" style="text-decoration: none; color: inherit;">
                     <div class="access-tile">
@@ -108,7 +123,10 @@
                 </a>
                 <a href="#" style="text-decoration: none; color: inherit;">
                     <div class="access-tile">
-                        <div class="access-title">I'm looking for Work or Training for Small Business</div>   
+                        <div class="access-title">
+                            I'm looking for Work or Training for
+                            <span class="access-title-bottom">Small Business</span>
+                        </div>   
                     </div>
                 </a>
                 <a href="#" style="text-decoration: none; color: inherit;">
@@ -116,15 +134,137 @@
                         <div class="access-title">I'm looking for Work or Training for Agriculture</div> 
                     </div>
                 </a>
-                <a href="statistics-dashboard.html" style="text-decoration: none; color: inherit;">
+                <!-- <a href="statistics-dashboard.html" style="text-decoration: none; color: inherit;">
                     <div class="access-tile">
                         <div class="access-title">Statistics Dashboard</div>
                     </div>
-                </a>
+                </a> -->
             </div>
         </section>
         <!-- End Quick Access Tiles -->
 
+        <!-- Statistics Dashboard
+        <section class="quick-snapshot-list">
+            <h2 class="snapshot-section-title">Current Community Economics Labor Market Data</h2>
+            <div class="snapshot-banner">
+                <a href="population-work.html" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">Population and Work Force</div>
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">Businesses Employment</div>
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">Job Forecast</div>   
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">KPIs</div> 
+                    </div>
+                </a>
+            </div>
+        </section> -->
+
+
+        <!-- TEST -->
+        <section class="banner-economic-dashboard">
+            <h1 style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 3rem; font-weight: bold; color: #4A0404;">County</span>
+                <span class="vertical-bar"></span>
+                <span style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <span>Economic</span>
+                    <span>Dashboard</span>
+                </span>
+            </h1>
+        </section>
+        <section class="tiles-economic-dashboard">
+            <div class="snapshot-economic-banner">
+                <a href="#" class="access-link" data-graph="economic" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">Economic Dashboard</div>
+                    </div>
+                </a>
+                <a href="#" class="access-link" data-graph="population" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">Population and Work Force</div>
+                    </div>
+                </a>
+                <a href="#" class="access-link" data-graph="business" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">Businesses Employment</div>
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">Job Forecast</div>   
+                    </div>
+                </a>
+                <a href="#" style="text-decoration: none; color: inherit;">
+                    <div class="access-tile1">
+                        <div class="access-title">KPIs</div> 
+                    </div>
+                </a>
+            </div>
+
+            <!-- Graph container below the banner -->
+            <div id="dashboard-graph-container-economic">
+                <div class="economic-title">
+                    <h1>Economic Dashboard</h1>
+                    <p>Explore the economic indicators and trends that shape our community's growth.</p>
+                </div>
+            </div>
+
+            <!-- Graph container below the banner -->
+            <div id="dashboard-graph-container-population" style="display: none;">
+                <div class="charts-grid">
+                    <div class="chart-item">
+                        <canvas id="populationYearChart" width="800" height="500"></canvas>
+                        <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                    </div>
+                    <div class="chart-item">
+                        <canvas id="pyramidChart" width="800" height="500"></canvas>
+                        <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                    </div>
+                    <div class="chart-item">
+                        <canvas id="laborMarketChart" width="800" height="500"></canvas>
+                        <div class="chart-caption">Source: Statistics Canada 2021 Community Profile Data</div>
+                    </div>
+                    <div class="chart-item">
+                        <canvas id="participationRateChart" width="800" height="500"></canvas>
+                        <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graphs for Businesses Employment -->
+            <div id="dashboard-graph-container-business" style="display: none;">
+                <div class="charts-grid">
+                    <div class="chart-item">
+                        <canvas id="unemploymentRateChart" width="800" height="500"></canvas>
+                        <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                    </div>
+                    <div class="chart-item">
+                        <canvas id="laborMarketChart" width="800" height="500"></canvas>
+                        <div class="chart-caption">Source: Statistics Canada 2021 Community Profile Data</div>
+                    </div>
+                    <div class="chart-item">
+                        <canvas id="buildingPermitChart" width="800" height="500"></canvas>
+                        <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                    </div>
+                    <div class="chart-item">
+                        <canvas id="businessAreaChart" width="800" height="500"></canvas>
+                        <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </section>
             
         
     </div>
@@ -132,11 +272,14 @@
     <!-- Bottom Bar -->
     <footer class="bottombar">
         <div class="bottombar-content">
-            <span>Contact Us: info@county.ca | (555) 123-4567 | County, AB</span>
+            <span>Contact Us: Applications Management Consulting | (780) 425-6741 | County, AB</span>
         </div>
     </footer>
 
     <!-- Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="js/scripts.js"></script>
+    
 </body>
 </html>

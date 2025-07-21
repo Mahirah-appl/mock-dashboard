@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
     <div class="grid-container">
@@ -69,7 +70,7 @@
 
         <!-- Welcome Banner -->
         <section class="welcome-banner">
-            <h1>Ask a Question</h1>
+            <h1>Statistics Dashboard</h1>
         </section>
         <!-- End Welcome Banner -->
 
@@ -77,43 +78,27 @@
          <div class="main-layout">
             <!-- Main Content -->
             <main class="main-content" id="main-content">
-                <section class="suggestion-box-section">
-                    <form class="suggestion-form">
-                        <label for="name" class="suggestion-label">Name:</label>
-                        <input type="text" id="name" name="name" class="suggestion-input" required>
-
-                        <label for="email" class="suggestion-label">Email:</label>
-                        <input type="email" id="email" name="email" class="suggestion-input" required>
-
-                        <label for="topic" class="suggestion-label">Topic:</label>
-                        <input type="text" id="topic" name="topic" class="suggestion-input" placeholder="e.g. Funding, Training, General" required>
-
-                        <label for="suggestion" class="suggestion-label">Message:</label>
-                        <textarea id="suggestion" name="suggestion" class="suggestion-textarea" rows="5" placeholder="Type your suggestion or question here..." required></textarea>
-
-                        <button type="submit" class="suggestion-submit">Submit</button>
-                    </form>
-                </section>
-
-                <!-- <div class="dashboard-search-container" style="margin: 1rem 0; text-align: right;">
-                    <input type="text" id="dashboard-search" placeholder="Search dashboard..." style="padding:0.5rem; border-radius:6px; border:1px solid #ccc; width:220px;">
-                    <button id="dashboard-search-btn" style="padding:0.5rem 1rem; border-radius:6px; border:none; background:#1976d2; color:#fff; cursor:pointer;">Search</button>
-                </div> -->
-
-                <div id="chatbot-fab">
-                    <span>💬</span>
-                </div>
-                <!-- Chatbot Popup -->
-                <div id="chatbot-popup">
-                    <div class="chatbot-container">
-                        <div id="chatbot-messages"></div>
-                        <form id="chatbot-form">
-                            <input type="text" id="chatbot-input" placeholder="Ask a question..." autocomplete="off" required>
-                            <button type="submit">Send</button>
-                        </form>
+                <div class="charts-grid">
+                    <div class="chart-cell">
+                        <canvas id="pyramidChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="laborMarketChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="buildingPermitChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="businessAreaChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="participationRateChart" width="900" height="600"></canvas>
+                    </div>
+                    <div class="chart-cell">
+                        <canvas id="unemploymentRateChart" width="900" height="600"></canvas>
                     </div>
                 </div>
-                
+  
             </main>
         </div>
         
@@ -128,5 +113,7 @@
 
     <!-- Custom JS -->
     <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 </body>
 </html>
