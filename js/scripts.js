@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
             shadowSize: [41, 41]
         }),
-        'Farm': L.icon({
+        'Agriculture': L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
             shadowSize: [41, 41]
         }),
-        'Health': L.icon({
+        'Professional Services': L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -261,7 +261,47 @@ document.addEventListener('DOMContentLoaded', function () {
             shadowSize: [41, 41]
         }),
         'Groceries & Local Foods': L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            shadowSize: [41, 41]
+        }),
+        'Building Supplies': L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            shadowSize: [41, 41]
+        }),
+        'Construction': L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            shadowSize: [41, 41]
+        }),
+        'Education': L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-gold.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            shadowSize: [41, 41]
+        }),
+        'Tourism & Recreation': L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            shadowSize: [41, 41]
+        }),
+        'Industrial': L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
             popupAnchor: [1, -34],
@@ -272,186 +312,367 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Example business locations (replace with real data)
-    var businesses = [
-        { 
-            name: "LP Farm Fresh Chicken", 
-            lat: 52.33279, 
-            lng: -112.44390,
-            phone: "(403) 742 3454",
-            address: "Botha, AB, T0C 0N0", 
-            industry: "Farm"
-        },
-        { 
-            name: "Byemoor Poultry Farm", 
-            lat: 52.06208, 
-            lng: -112.20197, 
-            phone: "(587) 282 4706",
-            address: "1 Ave, Byemoor, AB T0J 0L0", 
-            industry: "Farm"
-        },
-        { 
-            name: "G3 Erskine", 
-            lat: 52.31265, 
-            lng: -112.89245,
-            phone: "(403) 743 1246",
-            address: "38568 Highway 835, Erskine, AB T0C 1G0", 
-            industry: "Retail"
-        },
-        { 
-            name: "Consignment Closet", 
-            lat: 52.327291123758954, 
-            lng: -112.73466754236172,
-            phone: "(403) 742-0676",
-            address: "6600 50 Ave, Stettler, AB T0C 2L2", 
-            industry: "Retail"
-        },
-        { 
-            name: "Country Chiropractic", 
-            lat: 52.3241425985079, 
-            lng: -112.70527885029871,
-            phone: "(403) 742-8885",
-            address: "4816 50 Ave, Stettler, AB T0C 2L2", 
-            industry: "Health"
-        },
-        { 
-            name: "Crossfit Stettler", 
-            lat: 52.32036451893868, 
-            lng: -112.70160593443339,
-            phone: "(403) 740-9287",
-            address: "4808 45 Ave, Stettler, AB T0C 2L0", 
-            industry: "Health"
-        },
-        { 
-            name: "Ford's Farmstead", 
-            lat: 52.317725292330366, 
-            lng: -112.81320168840264,
-            phone: "(403) 894-3747",
-            address: "Township Rd 390, Stettler, AB T0C 2L0", 
-            industry: "Groceries & Local Foods"
-        },
-        { 
-            name: "Shrum's Sausage & Meats", 
-            lat: 52.3231178609908, 
-            lng: -112.69135820374231,
-            phone: "(403) 742-1427",
-            address: "4703 42 St, Stettler, AB T0C 2L0", 
-            industry: "Groceries & Local Foods"
-        }
-    ];
+    // var businesses = [
+    //     { 
+    //         name: "LP Farm Fresh Chicken", 
+    //         lat: 52.33279, 
+    //         lng: -112.44390,
+    //         phone: "(403) 742 3454",
+    //         address: "Botha, AB, T0C 0N0", 
+    //         industry: "Farm"
+    //     },
+    //     { 
+    //         name: "Byemoor Poultry Farm", 
+    //         lat: 52.06208, 
+    //         lng: -112.20197, 
+    //         phone: "(587) 282 4706",
+    //         address: "1 Ave, Byemoor, AB T0J 0L0", 
+    //         industry: "Farm"
+    //     },
+    //     { 
+    //         name: "G3 Erskine", 
+    //         lat: 52.31265, 
+    //         lng: -112.89245,
+    //         phone: "(403) 743 1246",
+    //         address: "38568 Highway 835, Erskine, AB T0C 1G0", 
+    //         industry: "Retail"
+    //     },
+    //     { 
+    //         name: "Consignment Closet", 
+    //         lat: 52.327291123758954, 
+    //         lng: -112.73466754236172,
+    //         phone: "(403) 742-0676",
+    //         address: "6600 50 Ave, Stettler, AB T0C 2L2", 
+    //         industry: "Retail"
+    //     },
+    //     { 
+    //         name: "Country Chiropractic", 
+    //         lat: 52.3241425985079, 
+    //         lng: -112.70527885029871,
+    //         phone: "(403) 742-8885",
+    //         address: "4816 50 Ave, Stettler, AB T0C 2L2", 
+    //         industry: "Health"
+    //     },
+    //     { 
+    //         name: "Crossfit Stettler", 
+    //         lat: 52.32036451893868, 
+    //         lng: -112.70160593443339,
+    //         phone: "(403) 740-9287",
+    //         address: "4808 45 Ave, Stettler, AB T0C 2L0", 
+    //         industry: "Health"
+    //     },
+    //     { 
+    //         name: "Ford's Farmstead", 
+    //         lat: 52.317725292330366, 
+    //         lng: -112.81320168840264,
+    //         phone: "(403) 894-3747",
+    //         address: "Township Rd 390, Stettler, AB T0C 2L0", 
+    //         industry: "Groceries & Local Foods"
+    //     },
+    //     { 
+    //         name: "Shrum's Sausage & Meats", 
+    //         lat: 52.3231178609908, 
+    //         lng: -112.69135820374231,
+    //         phone: "(403) 742-1427",
+    //         address: "4703 42 St, Stettler, AB T0C 2L0", 
+    //         industry: "Groceries & Local Foods"
+    //     }
+    // ];
 
-    // Store marker references
-    var markers = [];
+    fetch('js/businesses-list.csv')
+      .then(response => response.text())
+      .then(csv => {
+        const result = Papa.parse(csv, { header: true });
+        const businesses = result.data.filter(row => row.lat && row.lng);
 
-    businesses.forEach(function(biz, idx) {
-        var marker = L.marker([biz.lat, biz.lng], {
-            icon: industryIcons[biz.industry] || industryIcons['Small Business']
-        })
-        .addTo(map)
-        .bindPopup(
-            `<b>${biz.name}</b><br>
-            ${biz.phone ? 'Phone: ' + biz.phone + '<br>' : ''}
-            ${biz.address ? 'Address: ' + biz.address + '<br>' : ''}`
-        );
-        markers.push(marker);
-    });
+        var markers = [];
 
-
-    // Create business list below the map as tiles
-    var listContainer = document.createElement('div');
-    listContainer.id = 'business-list';
-    listContainer.style.margin = '2rem auto'; // Center the grid
-    listContainer.style.maxWidth = '1200px'; 
-    listContainer.style.padding = '0 2rem'; 
-    listContainer.style.display = 'grid';
-    listContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(250px, 1fr))';
-    listContainer.style.gap = '1.5rem';
-
-    const markerColors = {
-        'Retail': '#ff4d4d',           // Red marker
-        'Farm': '#4caf50',             // Green marker
-        'Health': '#1976d2',           // Blue marker
-        'Groceries & Local Foods': '#ffa726' // Orange marker
-        // Add more if needed
-    };
-
-    businesses.forEach((biz, idx) => {
-        var tile = document.createElement('div');
-        tile.className = 'business-tile';
-        tile.style.background = markerColors[biz.industry] ? markerColors[biz.industry] + '22' : '#f7f7f7'; // '22' for light shade
-        tile.style.borderRadius = '12px';
-        tile.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
-        tile.style.padding = '1rem';
-        tile.style.cursor = 'pointer';
-        tile.style.transition = 'box-shadow 0.2s';
-        tile.style.border = '2px solid #e0e0e0';
-
-        tile.innerHTML = `
-            <div style="font-weight:bold; color:#1976d2; font-size:1.1em;">${biz.name}</div>
-            ${biz.address ? `<div style="font-size:0.95em; color:#333;">${biz.address}</div>` : ''}
-            ${biz.phone ? `<div style="font-size:0.95em; color:#333;">${biz.phone}</div>` : ''}
-        `;
-
-        tile.addEventListener('click', function() {
-            var marker = markers[idx];
-            if (marker) {
-                map.setView(marker.getLatLng(), 14, { animate: true });
-                marker.openPopup();
-            }
+        // 1. Create markers
+        businesses.forEach(function(biz, idx) {
+            var marker = L.marker([parseFloat(biz.lat), parseFloat(biz.lng)], {
+                icon: industryIcons[biz.industry] || industryIcons['Small Business']
+            })
+            .addTo(map)
+            .bindPopup(
+                `<b>${biz.name}</b><br>
+                ${biz.phone ? 'Phone: ' + biz.phone + '<br>' : ''}
+                ${biz.email ? 'Email: ' + biz.email + '<br>' : ''}
+                ${biz.addess ? 'Address: ' + biz.addess + '<br>' : ''}
+                ${biz.industry ? 'Industry: ' + biz.industry : ''}`
+            );
+            marker.industry = biz.industry;
+            markers.push(marker);
         });
 
-        tile.addEventListener('mouseover', function() {
-            tile.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)';
-            tile.style.border = '2px solid #1976d2';
-        });
-        tile.addEventListener('mouseout', function() {
+        // 2. Create business list tiles
+        var listContainer = document.createElement('div');
+        listContainer.id = 'business-list';
+        listContainer.style.margin = '2rem auto';
+        listContainer.style.maxWidth = '1200px';
+        listContainer.style.padding = '0 2rem';
+        listContainer.style.display = 'grid';
+        listContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(250px, 1fr))';
+        listContainer.style.gap = '1.5rem';
+
+        const markerColors = {
+            'Retail': '#ff4d4d',
+            'Agriculture': '#4caf50',
+            'Professional Services': '#1976d2',
+            'Groceries & Local Foods': '#7B7B7B',
+            'Building Supplies': 'orange',
+            'Construction': '#ff9800',
+            'Education': '#FFD326',
+            'Tourism & Recreation': '#3D3D3D',
+            'Industrial': '#9C2BCB'
+        };
+
+        businesses.forEach((biz, idx) => {
+            var tile = document.createElement('div');
+            tile.className = 'business-tile';
+            tile.style.background = markerColors[biz.industry] ? markerColors[biz.industry] + '22' : '#f7f7f7';
+            tile.style.borderRadius = '12px';
             tile.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+            tile.style.padding = '1rem';
+            tile.style.cursor = 'pointer';
+            tile.style.transition = 'box-shadow 0.2s';
             tile.style.border = '2px solid #e0e0e0';
+
+            tile.innerHTML = `
+                <div style="font-weight:bold; color:#1976d2; font-size:1.1em;">${biz.name}</div>
+                ${biz.address ? `<div style="font-size:0.95em; color:#333;">${biz.address}</div>` : ''}
+                ${biz.phone ? `<div style="font-size:0.95em; color:#333;">${biz.phone}</div>` : ''}
+            `;
+
+            tile.addEventListener('click', function() {
+                var marker = markers[idx];
+                if (marker) {
+                    map.setView(marker.getLatLng(), 14, { animate: true });
+                    marker.openPopup();
+                }
+            });
+
+            tile.addEventListener('mouseover', function() {
+                tile.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)';
+                tile.style.border = '2px solid #1976d2';
+            });
+            tile.addEventListener('mouseout', function() {
+                tile.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+                tile.style.border = '2px solid #e0e0e0';
+            });
+
+            listContainer.appendChild(tile);
         });
 
-        listContainer.appendChild(tile);
-    });
-
-    // Insert the tile grid after the map
-    var mapSection = document.querySelector('.map-section');
-    if (mapSection) {
-        mapSection.appendChild(listContainer);
-    } else {
-        var mapEl = document.getElementById('business-map');
-        if (mapEl && mapEl.parentNode) {
-            mapEl.parentNode.insertBefore(listContainer, mapEl.nextSibling);
-        }
-    }
-
-    // Add click event to each business in the list
-    listContainer.querySelectorAll('a[data-idx]').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            var idx = parseInt(this.getAttribute('data-idx'));
-            var marker = markers[idx];
-            if (marker) {
-                map.setView(marker.getLatLng(), 14, { animate: true });
-                marker.openPopup();
+        // Insert the tile grid after the map
+        var mapSection = document.querySelector('.map-section');
+        if (mapSection) {
+            mapSection.appendChild(listContainer);
+        } else {
+            var mapEl = document.getElementById('business-map');
+            if (mapEl && mapEl.parentNode) {
+                mapEl.parentNode.insertBefore(listContainer, mapEl.nextSibling);
             }
-        });
-    });
+        }
 
-    // Add legend to the map
-    if (typeof map !== 'undefined') {
-      var legend = L.control({ position: 'topright' });
+        // 3. Add legend to the map
+        var legend = L.control({ position: 'topright' });
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'map-legend');
+            div.innerHTML += '<h4>Industry Legend</h4>';
+            div.innerHTML += '<div class="legend-item" data-industry="Retail" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" style="height:20px;"> Retail</div>';
+            div.innerHTML += '<div class="legend-item" data-industry="Agriculture" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" style="height:20px;"> Agriculture</div>';
+            div.innerHTML += '<div class="legend-item" data-industry="Professional Services" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png" style="height:20px;"> Professional Services</div>';
+            div.innerHTML += '<div class="legend-item" data-industry="Groceries & Local Foods" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png" style="height:20px;"> Groceries & Local Foods</div>';
+            div.innerHTML += '<div class="legend-item" data-industry="Building Supplies" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png" style="height:20px;"> Building Supplies</div>';
+            div.innerHTML += '<div class="legend-item" data-industry="Construction" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png" style="height:20px;"> Construction</div>';
+            div.innerHTML += '<div class="legend-item" data-industry="Education" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-gold.png" style="height:20px;"> Education</div>';
+            div.innerHTML += '<div class="legend-item" data-industry="Tourism & Recreation" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png" style="height:20px;"> Tourism & Recreation</div>';
+            div.innerHTML += '<div class="legend-item" data-industry="Industrial" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png" style="height:20px;"> Industrial</div>';
+            // Add more as needed
+            return div;
+        };
+        legend.addTo(map);
 
-      legend.onAdd = function (map) {
-          var div = L.DomUtil.create('div', 'map-legend');
-          div.innerHTML += '<h4>Industry Legend</h4>';
-          div.innerHTML += '<div><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" style="height:20px;"> Retail</div>';
-          div.innerHTML += '<div><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" style="height:20px;"> Farm</div>';
-          div.innerHTML += '<div><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png" style="height:20px;"> Health</div>';
-          div.innerHTML += '<div><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png" style="height:20px;"> Groceries & Local Foods</div>';
-          return div;
-      };
+        // 4. Attach legend click handlers
+        setTimeout(function() {
+            document.querySelectorAll('.legend-item').forEach(function(item) {
+                item.onclick = function() {
+                    const isSelected = this.classList.contains('selected');
+                    document.querySelectorAll('.legend-item').forEach(i => i.classList.remove('selected'));
+                    if (isSelected) {
+                        markers.forEach(function(marker) {
+                            if (!map.hasLayer(marker)) map.addLayer(marker);
+                        });
+                    } else {
+                        this.classList.add('selected');
+                        var selected = this.getAttribute('data-industry');
+                        markers.forEach(function(marker) {
+                            if (marker.industry === selected) {
+                                if (!map.hasLayer(marker)) map.addLayer(marker);
+                            } else {
+                                if (map.hasLayer(marker)) map.removeLayer(marker);
+                            }
+                        });
+                    }
+                };
+            });
+        }, 200);
 
-      legend.addTo(map);
-  }
+    }); // END fetch
+
+    // // Store marker references
+    // var markers = [];
+
+    // businesses.forEach(function(biz, idx) {
+    //     var marker = L.marker([biz.lat, biz.lng], {
+    //         icon: industryIcons[biz.industry] || industryIcons['Small Business']
+    //     })
+    //     .addTo(map)
+    //     .bindPopup(
+    //         `<b>${biz.name}</b><br>
+    //         ${biz.phone ? 'Phone: ' + biz.phone + '<br>' : ''}
+    //         ${biz.address ? 'Address: ' + biz.address + '<br>' : ''}`
+    //     );
+    //     marker.industry = biz.industry;
+    //     markers.push(marker);
+    // });
+
+
+    // // Create business list below the map as tiles
+    // var listContainer = document.createElement('div');
+    // listContainer.id = 'business-list';
+    // listContainer.style.margin = '2rem auto'; // Center the grid
+    // listContainer.style.maxWidth = '1200px'; 
+    // listContainer.style.padding = '0 2rem'; 
+    // listContainer.style.display = 'grid';
+    // listContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(250px, 1fr))';
+    // listContainer.style.gap = '1.5rem';
+
+    // const markerColors = {
+    //     'Retail': '#ff4d4d',           // Red marker
+    //     'Agriculture': '#4caf50',             // Green marker
+    //     'Professional Services': '#1976d2',           // Blue marker
+    //     'Groceries & Local Foods': 'grey', // Grey marker
+    //     'Building Supplies': 'orange', // Orange marker
+    //     'Construction': '#ff9800', // Yellow marker
+    //     'Education': '#gold', // Dark Green marker
+    //     'Tourism & Recreation': 'black', // Brown marker  
+    //     'Industrial': '#violet' // Pink marker
+
+    //     // Add more if needed
+    // };
+
+    // businesses.forEach((biz, idx) => {
+    //     var tile = document.createElement('div');
+    //     tile.className = 'business-tile';
+    //     tile.style.background = markerColors[biz.industry] ? markerColors[biz.industry] + '22' : '#f7f7f7'; // '22' for light shade
+    //     tile.style.borderRadius = '12px';
+    //     tile.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+    //     tile.style.padding = '1rem';
+    //     tile.style.cursor = 'pointer';
+    //     tile.style.transition = 'box-shadow 0.2s';
+    //     tile.style.border = '2px solid #e0e0e0';
+
+    //     tile.innerHTML = `
+    //         <div style="font-weight:bold; color:#1976d2; font-size:1.1em;">${biz.name}</div>
+    //         ${biz.address ? `<div style="font-size:0.95em; color:#333;">${biz.address}</div>` : ''}
+    //         ${biz.phone ? `<div style="font-size:0.95em; color:#333;">${biz.phone}</div>` : ''}
+    //     `;
+
+    //     tile.addEventListener('click', function() {
+    //         var marker = markers[idx];
+    //         if (marker) {
+    //             map.setView(marker.getLatLng(), 14, { animate: true });
+    //             marker.openPopup();
+    //         }
+    //     });
+
+    //     tile.addEventListener('mouseover', function() {
+    //         tile.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)';
+    //         tile.style.border = '2px solid #1976d2';
+    //     });
+    //     tile.addEventListener('mouseout', function() {
+    //         tile.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+    //         tile.style.border = '2px solid #e0e0e0';
+    //     });
+
+    //     listContainer.appendChild(tile);
+    // });
+
+    // // Insert the tile grid after the map
+    // var mapSection = document.querySelector('.map-section');
+    // if (mapSection) {
+    //     mapSection.appendChild(listContainer);
+    // } else {
+    //     var mapEl = document.getElementById('business-map');
+    //     if (mapEl && mapEl.parentNode) {
+    //         mapEl.parentNode.insertBefore(listContainer, mapEl.nextSibling);
+    //     }
+    // }
+
+    // // Add click event to each business in the list
+    // listContainer.querySelectorAll('a[data-idx]').forEach(function(link) {
+    //     link.addEventListener('click', function(e) {
+    //         e.preventDefault();
+    //         var idx = parseInt(this.getAttribute('data-idx'));
+    //         var marker = markers[idx];
+    //         if (marker) {
+    //             map.setView(marker.getLatLng(), 14, { animate: true });
+    //             marker.openPopup();
+    //         }
+    //     });
+    // });
+
+    // // Add legend to the map
+    // if (typeof map !== 'undefined') {
+    //   var legend = L.control({ position: 'topright' });
+
+    //   legend.onAdd = function (map) {
+    //       var div = L.DomUtil.create('div', 'map-legend');
+    //       div.innerHTML += '<h4>Industry Legend</h4>';
+    //       div.innerHTML += '<div class="legend-item" data-industry="Retail" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" style="height:20px;"> Retail</div>';
+    //       div.innerHTML += '<div class="legend-item" data-industry="Farm" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" style="height:20px;"> Farm</div>';
+    //       div.innerHTML += '<div class="legend-item" data-industry="Health" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png" style="height:20px;"> Health</div>';
+    //       div.innerHTML += '<div class="legend-item" data-industry="Groceries & Local Foods" style="cursor:pointer;"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png" style="height:20px;"> Groceries & Local Foods</div>';
+    //       // div.innerHTML += '<div class="legend-item" data-industry="all" style="cursor:pointer; font-weight:bold; margin-top:8px;">Show All</div>';
+    //       return div;
+    //   };
+
+    //   legend.addTo(map);
+
+    //   // Attach legend click handlers after legend is in the DOM
+    //   setTimeout(function() {
+    //     document.querySelectorAll('.legend-item').forEach(function(item) {
+    //         item.onclick = function() {
+    //             const isSelected = this.classList.contains('selected');
+    //             // Remove 'selected' from all legend items
+    //             document.querySelectorAll('.legend-item').forEach(i => i.classList.remove('selected'));
+
+    //             if (isSelected) {
+    //                 // If already selected, unselect and show all
+    //                 markers.forEach(function(marker) {
+    //                     if (!map.hasLayer(marker)) map.addLayer(marker);
+    //                 });
+    //             } else {
+    //                 // Add 'selected' to the clicked item
+    //                 this.classList.add('selected');
+    //                 var selected = this.getAttribute('data-industry');
+    //                 markers.forEach(function(marker) {
+    //                     if (selected === 'all' || marker.industry === selected) {
+    //                         if (!map.hasLayer(marker)) map.addLayer(marker);
+    //                     } else {
+    //                         if (map.hasLayer(marker)) map.removeLayer(marker);
+    //                     }
+    //                 });
+    //             }
+    //         };
+    //     });
+    //   }, 200);
+    //     }
 });
+
+
+
 
 
 /* NEWS SNAPSHOT - RSS FEED */
@@ -461,7 +682,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
       const newsBoxes = document.querySelectorAll('.snapshot-box');
       if (newsBoxes.length && data.items) {
-        data.items.slice(0, newsBoxes.length).forEach((item, idx) => {
+        data.items.slice(0, 3).forEach((item, idx) => {
           // Try enclosure image first
           let imgUrl = item.enclosure && item.enclosure.link
             ? item.enclosure.link
@@ -491,21 +712,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 });
-
-
-/* STATISTICS DASHBOARD - PYRAMID CHART */
-function addChartCaption(canvasId, captionText) {
-    const chartCanvas = document.getElementById(canvasId);
-    if (chartCanvas) {
-        const captionDiv = document.createElement('div');
-        captionDiv.textContent = captionText;
-        captionDiv.style.textAlign = 'center';
-        captionDiv.style.fontSize = '0.95rem';
-        captionDiv.style.color = '#555';
-        captionDiv.style.marginTop = '0.5rem';
-        chartCanvas.parentNode.appendChild(captionDiv); // Use appendChild
-    }
-}
 
 fetch('js/age-gender.csv')
   .then(response => response.text())
@@ -605,9 +811,9 @@ fetch('js/age-gender.csv')
         plugins: {
             legend: { 
                 position: 'bottom',
-                // labels: {
-                //     font: { size: 10 },
-                // }
+                labels: {
+                    font: { size: 12 },
+                }
 
             },
             title: {
@@ -615,7 +821,7 @@ fetch('js/age-gender.csv')
                 display: true,
                 text: '2024 Population Age and Gender Pyramid',
                 font: {
-                    size: 20
+                    size: 16
                 }
             },
             tooltip: {
@@ -640,7 +846,248 @@ fetch('js/age-gender.csv')
 
 
 // Example for a chart with canvas id="pyramidChart"
-addChartCaption('pyramidChart', 'Source: Alberta Regional Dashboard Data');
+// addChartCaption('pyramidChart', 'Source: Alberta Regional Dashboard Data');
+
+// STATISTICS DASHBOARD - POPULATION BY YEAR CHART
+fetch('js/population-year.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data;
+
+    // Get unique Local Force Work values
+    const localForceWorks = [...new Set(data.map(row => row['Year']))].filter(Boolean);
+
+    // Prepare data for the bar chart
+    const totals = localForceWorks.map(lfw =>
+      data
+        .filter(row => row['Year'] === lfw)
+        .reduce((sum, row) => sum + Number(row['Population'] || 0), 0)
+    );
+
+    const ctx = document.getElementById('populationYearChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: localForceWorks,
+        datasets: [{
+          label: 'Total',
+          data: totals,
+          backgroundColor: '#1976d2'
+        }]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,         // Animation duration in ms
+          easing: 'easeOutQuart', // Easing function
+          animateScale: true,     // For bar/pie charts: scales up from zero
+          animateRotate: true     // For pie/doughnut charts: rotates in
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Population by Year',
+            font: {
+              size: 16
+            }
+          },
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Total Population',
+            },
+            grid: {
+                display: false,
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Year'
+            }
+          }
+        }
+      }
+    });
+  });
+// // Example for a chart with canvas id="pyramidChart"
+// addChartCaption('populationYearChart', 'Source: Alberta Regional Dashboard Data');
+
+// STATISTICS DASHBOARD - LABOR MARKET CHART
+fetch('js/labor-market.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data;
+
+    // Get unique Local Force Work values
+    const localForceWorks = [...new Set(data.map(row => row['Local Work Force']))].filter(Boolean);
+
+    // Prepare data for the bar chart
+    const totals = localForceWorks.map(lfw =>
+      data
+        .filter(row => row['Local Work Force'] === lfw)
+        .reduce((sum, row) => sum + Number(row['Total'] || 0), 0)
+    );
+
+    const ctx = document.getElementById('laborMarketChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: localForceWorks,
+        datasets: [{
+          label: 'Total',
+          data: totals,
+          backgroundColor: '#1976d2'
+        }]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,         // Animation duration in ms
+          easing: 'easeOutQuart', // Easing function
+          animateScale: true,     // For bar/pie charts: scales up from zero
+          animateRotate: true     // For pie/doughnut charts: rotates in
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: '2021 Local Work Force by Industry',
+            font: {
+              size: 16
+            }
+          },
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Industry'
+            },
+            grid: {
+                display: false,
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Local Work Force'
+            }
+          }
+        }
+      }
+    });
+  });
+// // Example for a chart with canvas id="pyramidChart"
+// addChartCaption('laborMarketChart', 'Source: Statistics Canada 2021 Community Profile Data');
+
+// STATISTICS DASHBOARD - PARTICIPATION RATE CHART
+fetch('js/participation-rate.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data;
+
+    // Get unique periods (years) and genders, sorted
+    const periods = [...new Set(data.map(row => row['Period']))].filter(Boolean).sort();
+    const genders = [...new Set(data.map(row => row['Gender']))].filter(Boolean);
+
+    // Assign a color for each gender
+    const colors = [
+      '#D27D2D', '#1976d2', '#388e3c', '#fbc02d'
+    ];
+
+    // Prepare datasets for each gender
+    const datasets = genders.map((gender, idx) => ({
+      label: gender,
+      data: periods.map(period => {
+        // Sum values for this period/gender (should be one value per period/gender)
+        return data
+          .filter(row => row['Period'] === period && row['Gender'] === gender)
+          .reduce((sum, row) => sum + Number(row['OriginalValue'] || 0), 0);
+      }),
+      fill: false,
+      borderColor: colors[idx % colors.length],
+      backgroundColor: colors[idx % colors.length],
+      tension: 0.4
+    }));
+
+    const ctx = document.getElementById('participationRateChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: periods,
+        datasets: datasets
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,         // Animation duration in ms
+          easing: 'easeOutQuart', // Easing function
+          animateScale: true,     // For bar/pie charts: scales up from zero
+          animateRotate: true     // For pie/doughnut charts: rotates in
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Historical Participation Rates',
+            font: {
+              size: 16
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false
+          },
+          legend: {
+            position: 'bottom',
+            labels: {
+              font: {
+                size: 12
+              }
+            }
+          }
+        },
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
+        scales: {
+          x: {
+            stacked: false, // Not stacked
+            grid: {
+                display: false,
+            },
+            title: {
+              display: true,
+              text: 'Year'
+            }
+          },
+          y: {
+            stacked: false, // Not stacked
+            title: {
+              display: true,
+              text: 'Participation Rate'
+            }
+          }
+        }
+      }
+    });
+  });
+// // Example for a chart with canvas id="pyramidChart"
+// addChartCaption('participationRateChart', 'Source: Alberta Regional Dashboard Data');
 
 // STATISTICS DASHBOARD - PERMIT TYPE CHART
 fetch('js/building-permit.csv')
@@ -691,7 +1138,7 @@ fetch('js/building-permit.csv')
             display: true,
             text: 'Historical Building Permits by Type',
             font: {
-              size: 20
+              size: 16
             }
           },
           tooltip: {
@@ -724,8 +1171,8 @@ fetch('js/building-permit.csv')
       }
     });
   });
-// Example for a chart with canvas id="pyramidChart"
-addChartCaption('buildingPermitChart', 'Source: Alberta Regional Dashboard Data');
+// // Example for a chart with canvas id="pyramidChart"
+// addChartCaption('buildingPermitChart', 'Source: Alberta Regional Dashboard Data');
 
 // STATISTICS DASHBOARD - BUSINESS AREA CHART
 fetch('js/business.csv')
@@ -780,7 +1227,7 @@ fetch('js/business.csv')
             display: true,
             text: 'Number of Businesses by Industry',
             font: {
-              size: 20
+              size: 16
             }
           },
           tooltip: {
@@ -822,106 +1269,9 @@ fetch('js/business.csv')
       }
     });
   });
-// Example for a chart with canvas id="pyramidChart"
-addChartCaption('businessAreaChart', 'Source: Alberta Regional Dashboard Data');
+// // Example for a chart with canvas id="pyramidChart"
+// addChartCaption('businessAreaChart', 'Source: Alberta Regional Dashboard Data');
 
-
-// STATISTICS DASHBOARD - PARTICIPATION RATE CHART
-fetch('js/participation-rate.csv')
-  .then(response => response.text())
-  .then(csv => {
-    const result = Papa.parse(csv, { header: true });
-    const data = result.data;
-
-    // Get unique periods (years) and genders, sorted
-    const periods = [...new Set(data.map(row => row['Period']))].filter(Boolean).sort();
-    const genders = [...new Set(data.map(row => row['Gender']))].filter(Boolean);
-
-    // Assign a color for each gender
-    const colors = [
-      '#D27D2D', '#1976d2', '#388e3c', '#fbc02d'
-    ];
-
-    // Prepare datasets for each gender
-    const datasets = genders.map((gender, idx) => ({
-      label: gender,
-      data: periods.map(period => {
-        // Sum values for this period/gender (should be one value per period/gender)
-        return data
-          .filter(row => row['Period'] === period && row['Gender'] === gender)
-          .reduce((sum, row) => sum + Number(row['OriginalValue'] || 0), 0);
-      }),
-      fill: false,
-      borderColor: colors[idx % colors.length],
-      backgroundColor: colors[idx % colors.length],
-      tension: 0.4
-    }));
-
-    const ctx = document.getElementById('participationRateChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: periods,
-        datasets: datasets
-      },
-      options: {
-        responsive: false,
-        maintainAspectRatio: false,
-        animation: {
-          duration: 1200,         // Animation duration in ms
-          easing: 'easeOutQuart', // Easing function
-          animateScale: true,     // For bar/pie charts: scales up from zero
-          animateRotate: true     // For pie/doughnut charts: rotates in
-        },
-        plugins: {
-          title: {
-            display: true,
-            text: 'Historical Participation Rates',
-            font: {
-              size: 20
-            }
-          },
-          tooltip: {
-            mode: 'index',
-            intersect: false
-          },
-          legend: {
-            position: 'bottom',
-            labels: {
-              font: {
-                size: 14
-              }
-            }
-          }
-        },
-        interaction: {
-          mode: 'index',
-          intersect: false
-        },
-        scales: {
-          x: {
-            stacked: false, // Not stacked
-            grid: {
-                display: false,
-            },
-            title: {
-              display: true,
-              text: 'Year'
-            }
-          },
-          y: {
-            stacked: false, // Not stacked
-            title: {
-              display: true,
-              text: 'Participation Rate'
-            }
-          }
-        }
-      }
-    });
-  });
-// Example for a chart with canvas id="pyramidChart"
-addChartCaption('participationRateChart', 'Source: Alberta Regional Dashboard Data');
 
 // STATISTICS DASHBOARD - UNEMPLOYMENT RATE CHART
 fetch('js/unemployment-rate.csv')
@@ -973,7 +1323,7 @@ fetch('js/unemployment-rate.csv')
             display: true,
             text: 'Historical Unemployment Rates',
             font: {
-              size: 20
+              size: 16
             }
           },
           tooltip: {
@@ -984,7 +1334,7 @@ fetch('js/unemployment-rate.csv')
             position: 'bottom',
             labels: {
               font: {
-                size: 14
+                size: 12
               }
             }
           }
@@ -1015,80 +1365,10 @@ fetch('js/unemployment-rate.csv')
       }
     });
   });
-// Example for a chart with canvas id="pyramidChart"
-addChartCaption('unemploymentRateChart', 'Source: Alberta Regional Dashboard Data');
+// // Example for a chart with canvas id="pyramidChart"
+// addChartCaption('unemploymentRateChart', 'Source: Alberta Regional Dashboard Data');
 
-// STATISTICS DASHBOARD - LABOR MARKET CHART
-fetch('js/labor-market.csv')
-  .then(response => response.text())
-  .then(csv => {
-    const result = Papa.parse(csv, { header: true });
-    const data = result.data;
 
-    // Get unique Local Force Work values
-    const localForceWorks = [...new Set(data.map(row => row['Local Work Force']))].filter(Boolean);
-
-    // Prepare data for the bar chart
-    const totals = localForceWorks.map(lfw =>
-      data
-        .filter(row => row['Local Work Force'] === lfw)
-        .reduce((sum, row) => sum + Number(row['Total'] || 0), 0)
-    );
-
-    const ctx = document.getElementById('laborMarketChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: localForceWorks,
-        datasets: [{
-          label: 'Total',
-          data: totals,
-          backgroundColor: '#1976d2'
-        }]
-      },
-      options: {
-        responsive: false,
-        maintainAspectRatio: false,
-        animation: {
-          duration: 1200,         // Animation duration in ms
-          easing: 'easeOutQuart', // Easing function
-          animateScale: true,     // For bar/pie charts: scales up from zero
-          animateRotate: true     // For pie/doughnut charts: rotates in
-        },
-        plugins: {
-          title: {
-            display: true,
-            text: '2021 Local Work Force by Industry',
-            font: {
-              size: 20
-            }
-          },
-          legend: {
-            display: false
-          }
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Industry'
-            },
-            grid: {
-                display: false,
-            }
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'Local Work Force'
-            }
-          }
-        }
-      }
-    });
-  });
-// Example for a chart with canvas id="pyramidChart"
-addChartCaption('laborMarketChart', 'Source: Statistics Canada 2021 Community Profile Data');
 
 // CHATBOT INTEGRATION
 document.addEventListener('DOMContentLoaded', function() {
@@ -1135,5 +1415,80 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!popup.contains(e.target) && !fab.contains(e.target)) {
             popup.style.display = 'none';
         }
+    });
+});
+
+// // SEARCH BAR IN ASK QUESTIONS PAGE
+// document.addEventListener('DOMContentLoaded', function () {
+//     const searchInput = document.getElementById('dashboard-search');
+//     const searchBtn = document.getElementById('dashboard-search-btn');
+
+//     function removeHighlights() {
+//         document.querySelectorAll('.dashboard-highlight').forEach(el => {
+//             el.outerHTML = el.innerHTML;
+//         });
+//     }
+
+//     function highlightMatches(word) {
+//         if (!word) return;
+//         removeHighlights();
+//         const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+//         while (walker.nextNode()) {
+//             const node = walker.currentNode;
+//             if (node.parentNode && node.nodeValue.trim() && node.nodeValue.toLowerCase().includes(word.toLowerCase())) {
+//                 const regex = new RegExp(`(${word})`, 'gi');
+//                 const span = document.createElement('span');
+//                 span.className = 'dashboard-highlight';
+//                 span.style.background = '#ffe066';
+//                 span.style.color = '#222';
+//                 span.style.borderRadius = '3px';
+//                 span.innerHTML = node.nodeValue.replace(regex, '<mark>$1</mark>');
+//                 node.parentNode.replaceChild(span, node);
+//             }
+//         }
+//     }
+
+//     searchBtn.addEventListener('click', function () {
+//         const word = searchInput.value.trim();
+//         removeHighlights();
+//         if (word) highlightMatches(word);
+//     });
+
+//     searchInput.addEventListener('keydown', function (e) {
+//         if (e.key === 'Enter') {
+//             searchBtn.click();
+//         }
+//     });
+// });
+
+// STATISTICAL DASHBOARD DATA
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.access-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const graphType = this.getAttribute('data-graph');
+
+            // Hide economic container only if NOT clicking "economic"
+            if (graphType !== 'economic') {
+                document.getElementById('dashboard-graph-container-economic').style.display = 'none';
+            } else {
+                document.getElementById('dashboard-graph-container-economic').style.display = 'block';
+                document.getElementById('dashboard-graph-container-economic').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Hide other containers
+            document.getElementById('dashboard-graph-container-population').style.display = 'none';
+            document.getElementById('dashboard-graph-container-business').style.display = 'none';
+
+            // Show the correct graph container
+            if (graphType === 'population') {
+                document.getElementById('dashboard-graph-container-population').style.display = 'block';
+                document.getElementById('dashboard-graph-container-population').scrollIntoView({ behavior: 'smooth' });
+            } else if (graphType === 'business') {
+                document.getElementById('dashboard-graph-container-business').style.display = 'block';
+                document.getElementById('dashboard-graph-container-business').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
     });
 });
