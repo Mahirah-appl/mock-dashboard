@@ -119,7 +119,7 @@ body {
 
 .snapshot-banner {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: center;
     align-items: stretch;
     margin: 2rem 0;
@@ -128,24 +128,20 @@ body {
 }
 
 .snapshot-box {
-    margin-left: 2rem;
-    margin-right: 2rem;
+    width: 400px;         /* set your preferred width */
+    height: 300px;        /* set your preferred height */
+    min-width: 180px;     /* optional for responsiveness */
+    min-height: 120px;    /* optional for responsiveness */
+    /* background: #f7f7f7; */
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    padding: 2rem 1.5rem;
-    flex: 1 1 0;                /* All boxes grow/shrink equally */
-    min-width: 0;               /* Prevent overflow */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-end;
-    text-align: center;
-    transition: box-shadow 0.2s, transform 0.2s;
-    max-width: none;            /* Remove any max-width restriction */
-    height: 220px;
+    align-items: center;
+    overflow: hidden;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
-    
 }
 
 .snapshot-box a {
@@ -167,10 +163,23 @@ body {
     width: 100%;
     padding: 1rem;
     border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
     box-sizing: border-box;
     position: relative;
     z-index: 2;
     text-align: center;
+}
+
+.success-story-image .snapshot-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .snapshot-value {
@@ -178,10 +187,17 @@ body {
     font-weight: bold;
     color: #222;
 }
+.news-snapshot-list {
+    margin: 2rem 0;
+    text-align: center;
+    margin-bottom: 5rem; /* Adjust the value as needed */
+}
+
 .quick-snapshot-list {
     margin: 2rem 0;
     text-align: center;
     margin-bottom: 5rem; /* Adjust the value as needed */
+    background: rgba(0,0,0,0.04); /* light gray shade */
 }
 .snapshot-list {
     display: flex;
@@ -218,6 +234,11 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: #222;
+}
+
+.economic-title h1,
+.economic-title p {
+    margin-left: 6.3rem; /* Adjust value as needed */
 }
 
 
@@ -324,6 +345,13 @@ body {
     z-index: 2;
     text-align: center;
 }
+
+/* Add to your CSS file */
+.access-title-bottom {
+    display: block;
+    font-weight: 100; /* optional: makes it stand out */
+}
+
 .business-options {
     display: flex;
     gap: 0.5rem;
@@ -677,11 +705,17 @@ a[href="agriculture-business.html"] .access-tile {
 }
 
 
+.legend-item.selected {
+    background: rgba(25, 118, 210, 0.12); /* Light blue shade, adjust as needed */
+    border-radius: 6px;
+    font-weight: bold;
+}
+
 /* STATISTICS DASHBOARD */
 .charts-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 2rem;
     justify-items: center;
     align-items: center;
@@ -700,10 +734,10 @@ a[href="agriculture-business.html"] .access-tile {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Slightly darker shadow */
 }
 
-/* Chart.js global font settings */
-.chartjs-render-monitor {
-    font-size: 1.4rem !important;
+.chart-item {
+    margin-left: 6.4rem;
 }
+
 
 /* LOCAL RESOURCES - SUCCESS STORY SECTION */
 .success-story-section {
@@ -721,9 +755,15 @@ a[href="agriculture-business.html"] .access-tile {
 }
 
 .success-story-image {
+    background-image: url('success-story.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.success-story-image-size {
     grid-column: 1 / 2; /* Image in left column */
     grid-row: 1 / 2;
-    background: url('success-story.jpg') center center/contain no-repeat;
+    /* background: url('success-story.jpg') center center/contain no-repeat; */
     border-radius: 16px 0 0 16px;
     width: 100%;
     height: 100%;
@@ -819,6 +859,125 @@ a[href="agriculture-business.html"] .access-tile {
     color: #222;
     border-radius: 3px;
     padding: 0 2px;
+}
+
+/* ---------------- STATISTICS DASHBOARD ---------------- */
+.banner-economic-dashboard {
+    width: 100%;
+    max-width: 1500px;         /* Increased from 900px to 1100px */
+    margin: 5rem auto 2rem auto;
+    padding: 1rem 20px;        /* 2rem top/bottom, 20px left/right */
+    background: #e3f2fd;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    align-items: flex-start;
+}
+
+.banner-economic-dashboard h1 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.banner-economic-dashboard h1 > span:first-child {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #4A0404;
+    line-height: 1;
+}
+
+.banner-economic-dashboard h1 > span:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+.vertical-bar {
+    display: inline-block;
+    width: 6px;
+    height: 3.5rem;
+    background: #4A0404;
+    border-radius: 3px;
+    margin: 0 0.5rem;
+    vertical-align: middle;
+}
+
+.tiles-economic-dashboard {
+    width: 100%;
+    max-width: 1540px;         /* Increased from 900px to 1100px */
+    margin: 0rem auto 0rem auto;
+    height: 1200px;
+    background: lightgray;
+    margin-top: 0;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.snapshot-economic-banner {
+    display: flex;
+    width: 100%;
+    margin-top: 0;
+    margin: 0em auto 5rem auto;
+    justify-content: center;
+    gap: 0.6rem; 
+    align-items: flex-start;
+
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+    margin: 2rem 0;
+    margin-left: 0rem;
+    margin-top: -3rem;
+    width: 100%;
+}
+.charts-grid canvas {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    width: 100%;      /* Responsive width */
+    max-width: 600px; /* Adjust as needed */
+    height: 350px;    /* Adjust as needed */
+}
+
+.chart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-caption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
+    text-align: center;
+}
+
+
+.access-tile1 {
+    margin-top: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 260px;
+    height: 50px;
+    cursor: pointer;
+    text-align: center;
+    overflow: clip;
 }
 
 
