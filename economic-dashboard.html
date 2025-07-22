@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small Business Resources</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Top Bar Navigation -->
+        <nav class="topbar">
+            <div class="topbar-left">
+                
+                <img src="county-mock-logo.png" class="topbar-title" style="height:48px; object-fit:contain;">
+            </div>
+            <!-- Place inside .topbar -->
+            <div class="topbar-hamburger">&#9776;</div>
+            <ul class="topbar-menu">
+                <li><a href="index.html" class="dropdown-link">Home</a></li>
+                <li class="dropdown">Business Resource Hub
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Small Business Resources</a></li>
+                        <li><a href="#" class="dropdown-link">Agriculture Resources</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Support Tools
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Agriculture Programs and Services</a></li>
+                        <li><a href="#" class="dropdown-link">Agri-Tech and Tools</a></li>
+                        <li><a href="#" class="dropdown-link">Connect with Experts</a></li>
+                        <li><a href="support-tools.html" class="dropdown-link">Find a Business</a></li>
+                        <li><a href="economic-dashboard.html" class="dropdown-link">Economic Dashboard</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Training & Skills Development
+                    <ul class="dropdown-menu">
+                        <li><a href="training-calendar.html" class="dropdown-link">Training Calendar</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Local Resources
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Sustainability and Workforce Projects</a></li>
+                        <li><a href="#" class="dropdown-link">Volunteer and Contribute</a></li>
+                        <li><a href="#" class="dropdown-link">Available Properties</a></li>
+                        <li><a href="#" class="dropdown-link">Community Infrastructure</a></li>
+                        <li><a href="#" class="dropdown-link">Zoning and Policy Information</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Job Supports
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Job Ready Tools</a></li>
+                        <li><a href="#" class="dropdown-link">Employer Listing</a></li>
+                        <li><a href="job-listing.html" class="dropdown-link">Job Board</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Support Centre
+                    <ul class="dropdown-menu">
+                        <li><a href="ask-Questions.html" class="dropdown-link">Ask a Question</a></li>
+                        <li><a href="#" class="dropdown-link">FAQs</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Top Bar -->
+        <div class="mustard-banner"></div>
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+            <h1>Statistics Dashboard</h1>
+        </section>
+        <!-- End Welcome Banner -->
+
+        <!-- Your Small Business Resources content here -->
+         <div class="main-layout">
+            <!-- Main Content -->
+            <main class="main-content" id="main-content">
+                <section class="banner-economic-dashboard">
+                    <h1 style="display: flex; align-items: center; gap: 1rem;">
+                        <span style="font-size: 3rem; font-weight: bold; color: #4A0404;">County</span>
+                        <span class="vertical-bar"></span>
+                        <span style="display: flex; flex-direction: column; align-items: flex-start;">
+                            <span>Economic</span>
+                            <span>Dashboard</span>
+                        </span>
+                    </h1>
+                </section>
+                <section class="tiles-economic-dashboard">
+                    <div class="snapshot-economic-banner">
+                        <a href="#" class="access-link" data-graph="economic" style="text-decoration: none; color: inherit;">
+                            <div class="access-tile1">
+                                <div class="access-title">Economic Dashboard</div>
+                            </div>
+                        </a>
+                        <a href="#" class="access-link" data-graph="population" style="text-decoration: none; color: inherit;">
+                            <div class="access-tile1">
+                                <div class="access-title">Population and Work Force</div>
+                            </div>
+                        </a>
+                        <a href="#" class="access-link" data-graph="business" style="text-decoration: none; color: inherit;">
+                            <div class="access-tile1">
+                                <div class="access-title">Businesses Employment</div>
+                            </div>
+                        </a>
+                        <a href="#" class="access-link" data-graph="forecast" style="text-decoration: none; color: inherit;">
+                            <div class="access-tile1">
+                                <div class="access-title">Job Forecast</div>   
+                            </div>
+                        </a>
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div class="access-tile1">
+                                <div class="access-title">KPIs</div> 
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Graph container below the banner -->
+                    <div id="dashboard-graph-container-economic">
+                        <div class="economic-title">
+                            <h1>Economic Dashboard</h1>
+                            <p>Explore the economic indicators and trends that shape our community's growth.</p>
+                        </div>
+                    </div>
+
+                    <!-- Graph container below the banner -->
+                    <div id="dashboard-graph-container-population" style="display: none;">
+                        <div class="charts-grid">
+                            <div class="chart-item">
+                                <canvas id="populationYearChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                            </div>
+                            <div class="chart-item">
+                                <canvas id="pyramidChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                            </div>
+                            <div class="chart-item">
+                                <canvas id="laborMarketChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Statistics Canada 2021 Community Profile Data</div>
+                            </div>
+                            <div class="chart-item">
+                                <canvas id="participationRateChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Graphs for Businesses Employment -->
+                    <div id="dashboard-graph-container-business" style="display: none;">
+                        <div class="charts-grid">
+                            <div class="chart-item">
+                                <canvas id="unemploymentRateChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                            </div>
+                            <div class="chart-item">
+                                <canvas id="laborMarketChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Statistics Canada 2021 Community Profile Data</div>
+                            </div>
+                            <div class="chart-item">
+                                <canvas id="buildingPermitChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                            </div>
+                            <div class="chart-item">
+                                <canvas id="businessAreaChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Alberta Regional Dashboard Data</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Graphs for Job Forecast -->
+                    <div id="dashboard-graph-container-forecast" style="display: none;">
+                        <div class="charts-grid">
+                            <div class="chart-item">
+                                <canvas id="forecastEmpChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Applications Management Consulting</div>
+                            </div>
+                            <div class="chart-item">
+                                <div id="topOccChart" style="width: 800px; max-height: 500px"></div>
+                                <div class="chart-caption">Source: Applications Management Consulting</div>
+                            </div>
+                            <div class="chart-item">
+                                <canvas id="occGrowthChart" width="800" height="500"></canvas>
+                                <div class="chart-caption">Source: Applications Management Consulting</div>
+                            </div>
+                            <div class="chart-item">
+                                <div id="forecastGapsChart" style="width: 800px; max-height: 500px"></div>
+                                <div class="chart-caption">Source: Applications Management Consulting</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                
+  
+            </main>
+        </div>
+        
+    </div>
+
+    <!-- Bottom Bar -->
+    <footer class="bottombar">
+        <div class="bottombar-content">
+            <span>Contact Us: Applications Management Consulting | (780) 425-6741 | County, AB</span>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</body>
+</html>
