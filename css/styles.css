@@ -19,7 +19,7 @@
 }
 .topbar-title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+    font-size: 4em;
     margin-left: 1rem;
 }
 .topbar-menu {
@@ -287,6 +287,12 @@ body {
     color: #222 !important; /* or #000 for pure black */
 }
 
+/* Main dropdown items (Business Resource Hub, Support Tools, etc.) */
+.topbar-menu > li {
+    font-size: 18px;
+    font-weight: 500;
+}
+
 /* QUICK ACCESS TILES */
 .quick-access-tiles {
     display: flex;
@@ -333,17 +339,14 @@ body {
 }
 .access-title {
     width: 100%;
-    padding: 1rem 0.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.55) 80%, rgba(0,0,0,0.0) 100%);
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
     color: #fff;
-    font-size: 1rem;
-    font-weight: 100;
-    border-radius: 0 0 10px 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 2;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 /* Add to your CSS file */
@@ -395,26 +398,53 @@ body {
     padding-bottom: 80px; /* Adjust to be at least the height of your footer */
 }
 
-a[href="statistics-dashboard.html"] .access-tile {
-    background: url('statistics.jpg') center center/cover no-repeat;
-    color: #fff;
-    width: 300px;
-    height: 200px;
-}
 
-a[href="small-business.html"] .access-tile {
+a[href="small-business.html"] .snapshot-box {
     background: url('small-business.jpg') center center/cover no-repeat;
-    color: #fff;
-    width: 300px;
-    height: 200px;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
 }
 
-a[href="agriculture-business.html"] .access-tile {
-    background: url('agri.jpg') center center/cover no-repeat;
+a[href="small-business.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
     color: #fff;
-    width: 300px;
-    height: 200px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
+
+a[href="agriculture-business.html"] .snapshot-box {
+    background: url('agri.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+
+a[href="agriculture-business.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+
 
 /* small-business and agriculture resources side bar */
 .main-layout {
@@ -736,6 +766,17 @@ a[href="agriculture-business.html"] .access-tile {
 
 .chart-item {
     margin-left: 6.4rem;
+}
+
+.table-note {
+    padding: 10px;
+    background: #f8f9fa;
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
 }
 
 
