@@ -783,12 +783,14 @@ fetch('js/age-gender.csv')
             title: {
                 display: true,
                 text: 'Population Count',
+                color: '#000000' // Black title
                 // font: { size: 13 }
             },
             ticks: {
                 callback: function(value) {
                     return Math.abs(value);
                 },
+                color: '#000000', // Black tick labels
                 // font: { size: 10 },
                 stepSize: 50,
             },
@@ -804,8 +806,12 @@ fetch('js/age-gender.csv')
             title: {
                 display: true,
                 text: 'Age Group',
+                color: '#000000' // Black title
                 // font: { size: 13 }
             },
+            ticks: {
+              color: '#000000' // Black tick labels
+            }
         }
         },
         plugins: {
@@ -813,6 +819,7 @@ fetch('js/age-gender.csv')
                 position: 'bottom',
                 labels: {
                     font: { size: 12 },
+                    color: '#000000' // Black tick labels
                 }
 
             },
@@ -820,6 +827,7 @@ fetch('js/age-gender.csv')
                 // font: { size: 18 },
                 display: true,
                 text: '2024 Population Age and Gender Pyramid',
+                color: '#000000', // Black title
                 font: {
                     size: 16
                 }
@@ -889,6 +897,7 @@ fetch('js/population-year.csv')
           title: {
             display: true,
             text: 'Population by Year',
+            color: '#000000', // Black title
             font: {
               size: 16
             }
@@ -902,6 +911,10 @@ fetch('js/population-year.csv')
             title: {
               display: true,
               text: 'Total Population',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
             },
             grid: {
                 display: false,
@@ -910,7 +923,11 @@ fetch('js/population-year.csv')
           y: {
             title: {
               display: true,
-              text: 'Year'
+              text: 'Year',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
             }
           }
         }
@@ -961,6 +978,7 @@ fetch('js/labor-market.csv')
           title: {
             display: true,
             text: '2021 Local Work Force by Industry',
+            color: '#000000', // Black title
             font: {
               size: 16
             }
@@ -973,7 +991,11 @@ fetch('js/labor-market.csv')
           x: {
             title: {
               display: true,
-              text: 'Industry'
+              text: 'Industry',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
             },
             grid: {
                 display: false,
@@ -982,7 +1004,11 @@ fetch('js/labor-market.csv')
           y: {
             title: {
               display: true,
-              text: 'Local Work Force'
+              text: 'Local Work Force',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
             }
           }
         }
@@ -1043,6 +1069,7 @@ fetch('js/participation-rate.csv')
           title: {
             display: true,
             text: 'Historical Participation Rates',
+            color: '#000000', // Black title
             font: {
               size: 16
             }
@@ -1055,8 +1082,9 @@ fetch('js/participation-rate.csv')
             position: 'bottom',
             labels: {
               font: {
-                size: 12
-              }
+                size: 12,
+              },
+              color: '#000000' // Black tick labels
             }
           }
         },
@@ -1070,24 +1098,31 @@ fetch('js/participation-rate.csv')
             grid: {
                 display: false,
             },
+            ticks: {
+              color: '#000000' // Black tick labels
+            },
             title: {
               display: true,
-              text: 'Year'
+              text: 'Year',
+              color: '#000000' // Black title
             }
           },
           y: {
             stacked: false, // Not stacked
             title: {
               display: true,
-              text: 'Participation Rate'
+              text: 'Participation Rate',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
             }
           }
         }
       }
     });
   });
-// // Example for a chart with canvas id="pyramidChart"
-// addChartCaption('participationRateChart', 'Source: Alberta Regional Dashboard Data');
+
 
 // STATISTICS DASHBOARD - PERMIT TYPE CHART
 fetch('js/building-permit.csv')
@@ -1137,6 +1172,7 @@ fetch('js/building-permit.csv')
           title: {
             display: true,
             text: 'Historical Building Permits by Type',
+            color: '#000000', // Black title
             font: {
               size: 16
             }
@@ -1146,7 +1182,11 @@ fetch('js/building-permit.csv')
             intersect: false
           },
           legend: {
-            position: 'bottom'
+            position: 'bottom',
+            labels: {
+              color: '#000000' // Black tick labels
+              
+            }
           }
         },
         scales: {
@@ -1155,16 +1195,24 @@ fetch('js/building-permit.csv')
             grid: {
                 display: false,
             },
+            ticks: {
+              color: '#000000' // Black tick labels
+            },
             title: {
               display: true,
-              text: 'Year'
+              text: 'Year',
+              color: '#000000' // Black title
             }
           },
           y: {
             stacked: true,
             title: {
               display: true,
-              text: 'Number of Permits'
+              text: 'Number of Permits',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
             }
           }
         }
@@ -1226,6 +1274,7 @@ fetch('js/business.csv')
           title: {
             display: true,
             text: 'Number of Businesses by Industry',
+            color: '#000000', // Black tick labels
             font: {
               size: 16
             }
@@ -1240,6 +1289,8 @@ fetch('js/business.csv')
                 font: {
                     size: 8 // <-- Change this value to resize the legend text
                 },
+                color: '#000000' // Black tick labels
+                
             }
           }
         },
@@ -1253,16 +1304,24 @@ fetch('js/business.csv')
             grid: {
                 display: false,
             },
+            ticks: {
+              color: '#000000' // Black tick labels
+            },
             title: {
               display: true,
-              text: 'Year'
+              text: 'Year',
+              color: '#000000' // Black tick labels
             }
           },
           y: {
             stacked: true,
             title: {
               display: true,
-              text: 'Number of Businesses'
+              text: 'Number of Businesses',
+              color: '#000000' // Black tick labels
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
             }
           }
         }
@@ -1322,6 +1381,7 @@ fetch('js/unemployment-rate.csv')
           title: {
             display: true,
             text: 'Historical Unemployment Rates',
+            color: '#000000', // Black tick labels
             font: {
               size: 16
             }
@@ -1335,7 +1395,9 @@ fetch('js/unemployment-rate.csv')
             labels: {
               font: {
                 size: 12
-              }
+              },
+              color: '#000000' // Black tick labels
+              
             }
           }
         },
@@ -1349,16 +1411,24 @@ fetch('js/unemployment-rate.csv')
             grid: {
                 display: false,
             },
+            ticks: {
+              color: '#000000' // Black tick labels
+            },
             title: {
               display: true,
-              text: 'Year'
+              text: 'Year',
+              color: '#000000'
             }
           },
           y: {
             stacked: false, // Not stacked
             title: {
               display: true,
-              text: 'Unemployment Rate'
+              text: 'Unemployment Rate',
+              color: '#000000'
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
             }
           }
         }
@@ -1367,6 +1437,293 @@ fetch('js/unemployment-rate.csv')
   });
 // // Example for a chart with canvas id="pyramidChart"
 // addChartCaption('unemploymentRateChart', 'Source: Alberta Regional Dashboard Data');
+
+// STATISTICS DASHBOARD - Forecast Employment 
+fetch('js/ForecastEmp.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data;
+
+    // Get unique Local Force Work values
+    const localForceWorks = [...new Set(data.map(row => row['Industry']))].filter(Boolean);
+
+    // Prepare data for the bar chart
+    const totals = localForceWorks.map(lfw =>
+      data
+        .filter(row => row['Industry'] === lfw)
+        .reduce((sum, row) => sum + Number(row['Employment Growth by Industry (2024-2029)'] || 0), 0)
+    );
+
+    const ctx = document.getElementById('forecastEmpChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: localForceWorks,
+        datasets: [{
+          label: 'Total',
+          data: totals,
+          backgroundColor: '#1976d2'
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,         // Animation duration in ms
+          easing: 'easeOutQuart', // Easing function
+          animateScale: true,     // For bar/pie charts: scales up from zero
+          animateRotate: true     // For pie/doughnut charts: rotates in
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Employment Growth by Industry (2024-2029)',
+            color: '#000000',
+            font: {
+              size: 16
+            }
+          },
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Employment Growth',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
+            },
+            grid: {
+                display: false,
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Industry',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
+            }
+          }
+        }
+      }
+    });
+  });
+
+
+// TOP OCCUPATIONS TABLE
+fetch('js/TopOcc.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data.filter(row => row['Top 10 Occupations (2024)']);
+
+    // Get the container for the table
+    const tableContainer = document.getElementById('topOccChart');
+    
+    // Set container to match canvas size with rounded corners
+    tableContainer.style.width = '600px';
+    tableContainer.style.height = '500px';
+    tableContainer.style.overflowY = 'auto';
+    tableContainer.style.border = '1px solid #ddd';
+    tableContainer.style.borderRadius = '12px'; // Add curved corners
+    tableContainer.style.overflow = 'hidden'; // Ensures table content respects the border radius
+    
+    // Create table HTML
+    let tableHTML = `
+      <table style="width: 100%; height: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px;">
+        <thead>
+          <tr style="background: #1976d2; color: white;">
+            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">No.</th>
+            <th style="width: 70%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Industry</th>
+            <th style="width: 20%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Top 10 Occupations (2024)</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    data.forEach((row, index) => {
+      const industry = row['Industry'];
+      const occupation = row['Top 10 Occupations (2024)'];
+      
+      if (industry && occupation) {
+        tableHTML += `
+          <tr style="background: ${index % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; color: #1976d2;">${index + 1}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${industry}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${occupation}</td>
+          </tr>
+        `;
+      }
+    });
+
+    tableHTML += `</tbody></table>`;
+    
+    // Insert the table into the container
+    tableContainer.innerHTML = tableHTML;
+  })
+  .catch(error => {
+    console.error('Error loading TopOcc.csv:', error);
+    document.getElementById('topOccChart').innerHTML = '<p>Error loading occupation data.</p>';
+  });
+
+// STATISTICS DASHBOARD - Forecast Employment 
+fetch('js/OccGrowth.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data;
+
+    // Get unique Local Force Work values
+    const localForceWorks = [...new Set(data.map(row => row['Occupations by 5 Digit NOC']))].filter(Boolean);
+
+    // Prepare data for the bar chart
+    const totals = localForceWorks.map(lfw =>
+      data
+        .filter(row => row['Occupations by 5 Digit NOC'] === lfw)
+        .reduce((sum, row) => sum + Number(row['Top 10 Fastest Growing Occupations (2024-2029)'] || 0), 0)
+    );
+
+    const ctx = document.getElementById('occGrowthChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: localForceWorks,
+        datasets: [{
+          label: 'Total',
+          data: totals,
+          backgroundColor: '#1976d2'
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,         // Animation duration in ms
+          easing: 'easeOutQuart', // Easing function
+          animateScale: true,     // For bar/pie charts: scales up from zero
+          animateRotate: true     // For pie/doughnut charts: rotates in
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Fastest Growing Occupations in County',
+            color: '#000000',
+            font: {
+              size: 16
+            }
+          },
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Fastest Growing Occupations',
+              color: '#000000'
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
+            },
+            grid: {
+                display: false,
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Industry',
+              color: '#000000'
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
+            },
+          }
+        }
+      }
+    });
+  });
+
+
+// TOP OCCUPATIONS TABLE
+fetch('js/ForecastGaps.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data.filter(row => row['Occupations by 5 Digit NOC']);
+
+    // Get the container for the table
+    const tableContainer = document.getElementById('forecastGapsChart');
+    
+    // Set container to match canvas size with rounded corners
+    tableContainer.style.width = '600px';
+    tableContainer.style.height = '500px';
+    tableContainer.style.overflowY = 'auto';
+    tableContainer.style.border = '1px solid #ddd';
+    tableContainer.style.borderRadius = '12px';
+    tableContainer.style.overflow = 'hidden';
+    
+    // Create table HTML
+    let tableHTML = `
+      <table style="width: 100%; height: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px;">
+        <thead>
+          <tr style="background: #1976d2; color: white;">
+            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">No.</th>
+            <th style="width: 70%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Occupations by 5 Digit NOC</th>
+            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Job Growth</th>
+            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Gap</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    data.forEach((row, index) => {
+      const industry = row['Occupations by 5 Digit NOC'];
+      const jobgrowth = row['Job Growth'];
+      const gap = row['Gap'];
+      
+      if (industry && jobgrowth && gap) {
+        tableHTML += `
+          <tr style="background: ${index % 2 === 0 ? '#f9f9f9' : '#ffffff'};">
+            <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold; color: #1976d2;">${index + 1}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${industry}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${jobgrowth}</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">${gap}</td>
+          </tr>
+        `;
+      }
+    });
+
+    // ADD THE NOTE AS A TABLE ROW
+    tableHTML += `
+          <tr style="background: #f8f9fa;">
+            <td colspan="4" style="padding: 12px; border: 1px solid #ddd; text-align: center; font-size: 11px; color: #666; font-style: italic;">
+              <strong>Note:</strong> + indicates a surplus of workers in a specific occupation and - indicates a shortage of workers.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+    
+    // INSERT THE COMPLETE TABLE INTO THE CONTAINER
+    tableContainer.innerHTML = tableHTML;
+  })
+  .catch(error => {
+    console.error('Error loading ForecastGaps.csv:', error);
+    document.getElementById('forecastGapsChart').innerHTML = '<p>Error loading forecast gaps data.</p>';
+  });
+
 
 
 
@@ -1480,6 +1837,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Hide other containers
             document.getElementById('dashboard-graph-container-population').style.display = 'none';
             document.getElementById('dashboard-graph-container-business').style.display = 'none';
+            document.getElementById('dashboard-graph-container-forecast').style.display = 'none';
 
             // Show the correct graph container
             if (graphType === 'population') {
@@ -1488,6 +1846,9 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (graphType === 'business') {
                 document.getElementById('dashboard-graph-container-business').style.display = 'block';
                 document.getElementById('dashboard-graph-container-business').scrollIntoView({ behavior: 'smooth' });
+            } else if (graphType === 'forecast') {
+                document.getElementById('dashboard-graph-container-forecast').style.display = 'block';
+                document.getElementById('dashboard-graph-container-forecast').scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
