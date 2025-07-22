@@ -226,6 +226,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* SUPPORT TOOLS - FIND A BUSINESS  */
 document.addEventListener('DOMContentLoaded', function () {
+    // Only initialize if we're on the support-tools page
+    if (!document.getElementById('business-map')) return;
     // Center on Stettler County
     var map = L.map('business-map').setView([52.3167, -112.7167], 10);
 
@@ -234,6 +236,43 @@ document.addEventListener('DOMContentLoaded', function () {
         maxZoom: 18,
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
+
+    // ADD GEOJSON REGION OUTLINE HERE
+    fetch('altalis_export_22-07-2025.geojson')
+    .then(response => {
+        console.log('Fetch response status:', response.status);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('GeoJSON data loaded:', data);
+        console.log('Number of features:', data.features ? data.features.length : 'No features property');
+        
+        const geoLayer = L.geoJSON(data, {
+            style: {
+                color: '#D27D2D',        // Mustard color border
+                weight: 3,               // Border thickness
+                opacity: 0.8,            // Border opacity
+                fillColor: '#D27D2D',    // Fill color
+                fillOpacity: 0.1,        // Fill opacity (very light)
+                dashArray: null          // Solid line
+            }
+        }).addTo(map);
+
+        console.log('GeoJSON layer added to map');
+        
+        // Fit the map view to the region bounds
+        const bounds = geoLayer.getBounds();
+        console.log('Layer bounds:', bounds);
+        map.fitBounds(bounds);
+        
+    })
+    .catch(error => {
+        console.error('Error loading GeoJSON:', error);
+        console.error('Make sure the file altalis_export_22-07-2025.geojson exists in your project root');
+    });
 
     const industryIcons = {
         'Retail': L.icon({
@@ -311,73 +350,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Add more industries/colors as needed
     };
 
-    // Example business locations (replace with real data)
-    // var businesses = [
-    //     { 
-    //         name: "LP Farm Fresh Chicken", 
-    //         lat: 52.33279, 
-    //         lng: -112.44390,
-    //         phone: "(403) 742 3454",
-    //         address: "Botha, AB, T0C 0N0", 
-    //         industry: "Farm"
-    //     },
-    //     { 
-    //         name: "Byemoor Poultry Farm", 
-    //         lat: 52.06208, 
-    //         lng: -112.20197, 
-    //         phone: "(587) 282 4706",
-    //         address: "1 Ave, Byemoor, AB T0J 0L0", 
-    //         industry: "Farm"
-    //     },
-    //     { 
-    //         name: "G3 Erskine", 
-    //         lat: 52.31265, 
-    //         lng: -112.89245,
-    //         phone: "(403) 743 1246",
-    //         address: "38568 Highway 835, Erskine, AB T0C 1G0", 
-    //         industry: "Retail"
-    //     },
-    //     { 
-    //         name: "Consignment Closet", 
-    //         lat: 52.327291123758954, 
-    //         lng: -112.73466754236172,
-    //         phone: "(403) 742-0676",
-    //         address: "6600 50 Ave, Stettler, AB T0C 2L2", 
-    //         industry: "Retail"
-    //     },
-    //     { 
-    //         name: "Country Chiropractic", 
-    //         lat: 52.3241425985079, 
-    //         lng: -112.70527885029871,
-    //         phone: "(403) 742-8885",
-    //         address: "4816 50 Ave, Stettler, AB T0C 2L2", 
-    //         industry: "Health"
-    //     },
-    //     { 
-    //         name: "Crossfit Stettler", 
-    //         lat: 52.32036451893868, 
-    //         lng: -112.70160593443339,
-    //         phone: "(403) 740-9287",
-    //         address: "4808 45 Ave, Stettler, AB T0C 2L0", 
-    //         industry: "Health"
-    //     },
-    //     { 
-    //         name: "Ford's Farmstead", 
-    //         lat: 52.317725292330366, 
-    //         lng: -112.81320168840264,
-    //         phone: "(403) 894-3747",
-    //         address: "Township Rd 390, Stettler, AB T0C 2L0", 
-    //         industry: "Groceries & Local Foods"
-    //     },
-    //     { 
-    //         name: "Shrum's Sausage & Meats", 
-    //         lat: 52.3231178609908, 
-    //         lng: -112.69135820374231,
-    //         phone: "(403) 742-1427",
-    //         address: "4703 42 St, Stettler, AB T0C 2L0", 
-    //         industry: "Groceries & Local Foods"
-    //     }
-    // ];
 
     fetch('js/businesses-list.csv')
       .then(response => response.text())
@@ -675,44 +647,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-/* NEWS SNAPSHOT - RSS FEED */
-document.addEventListener('DOMContentLoaded', function() {
-  fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.cbc.ca/cmlink/rss-canada')
-    .then(response => response.json())
-    .then(data => {
-      const newsBoxes = document.querySelectorAll('.snapshot-box');
-      if (newsBoxes.length && data.items) {
-        data.items.slice(0, 3).forEach((item, idx) => {
-          // Try enclosure image first
-          let imgUrl = item.enclosure && item.enclosure.link
-            ? item.enclosure.link
-            : null;
+// /* NEWS SNAPSHOT - RSS FEED */
+// document.addEventListener('DOMContentLoaded', function() {
+//   fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.cbc.ca/cmlink/rss-canada')
+//     .then(response => response.json())
+//     .then(data => {
+//       const newsBoxes = document.querySelectorAll('.snapshot-box');
+//       if (newsBoxes.length && data.items) {
+//         data.items.slice(0, 3).forEach((item, idx) => {
+//           // Try enclosure image first
+//           let imgUrl = item.enclosure && item.enclosure.link
+//             ? item.enclosure.link
+//             : null;
 
-          // If no enclosure image, try to extract from description
-          if (!imgUrl && item.description) {
-            const match = item.description.match(/<img[^>]+src="([^">]+)"/);
-            if (match && match[1]) imgUrl = match[1];
-          }
+//           // If no enclosure image, try to extract from description
+//           if (!imgUrl && item.description) {
+//             const match = item.description.match(/<img[^>]+src="([^">]+)"/);
+//             if (match && match[1]) imgUrl = match[1];
+//           }
 
-          newsBoxes[idx].style.backgroundImage = imgUrl
-            ? `url('${imgUrl}')`
-            : 'none';
-          newsBoxes[idx].style.backgroundSize = 'cover';
-          newsBoxes[idx].style.backgroundPosition = 'center';
-          newsBoxes[idx].style.color = '#fff';
+//           newsBoxes[idx].style.backgroundImage = imgUrl
+//             ? `url('${imgUrl}')`
+//             : 'none';
+//           newsBoxes[idx].style.backgroundSize = 'cover';
+//           newsBoxes[idx].style.backgroundPosition = 'center';
+//           newsBoxes[idx].style.color = '#fff';
 
-          newsBoxes[idx].innerHTML = `
-            <div style="background: rgba(0,0,0,0.5); border-radius: 12px; padding: 1rem;">
-              <div class="snapshot-title">
-                <a href="${item.link}" target="_blank" style="color: #fff; text-shadow: 1px 1px 4px #000;">${item.title}</a>
-              </div>
-            </div>
-          `;
-        });
-      }
-    });
-});
+//           newsBoxes[idx].innerHTML = `
+//             <div style="background: rgba(0,0,0,0.5); border-radius: 12px; padding: 1rem;">
+//               <div class="snapshot-title">
+//                 <a href="${item.link}" target="_blank" style="color: #fff; text-shadow: 1px 1px 4px #000;">${item.title}</a>
+//               </div>
+//             </div>
+//           `;
+//         });
+//       }
+//     });
+// });
 
+
+
+// STATISTICS DASHBOARD - POPULATION PYRAMID CHART
 fetch('js/age-gender.csv')
   .then(response => response.text())
   .then(csv => {
