@@ -84,8 +84,7 @@
 }
 
 .welcome-banner1 {
-    background: url('dashboard-banner.png') center center/cover no-repeat;
-    padding: 14rem 1rem;
+    padding: 0; /* Adjust as needed */
     text-align: center;
     margin-top: 0;
     margin-left: -50vw;
@@ -421,6 +420,7 @@ a[href="small-business.html"] .snapshot-box .access-title {
     z-index: 2;
 }
 
+
 a[href="agriculture-business.html"] .snapshot-box {
     background: url('agri.jpg') center center/cover no-repeat;
     /* color: #fff; */
@@ -431,8 +431,104 @@ a[href="agriculture-business.html"] .snapshot-box {
     background-position: center;
 }
 
+.agriculture-training-image {
+    background: url('ag-job-training.jpeg') center center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
-a[href="agriculture-business.html"] .snapshot-box .access-title {
+.agriculture-training-image .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.small-business-training-image {
+    background: url('training-small-business.jpg') center center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.small-business-training-image .snapshot-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.news-article-image {
+    background: url('lacombe-news.png') center center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-article-image .snapshot-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.news-article-image2 {
+    background: url('new2.avif') center center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-article-image2 .snapshot-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.news-article-image3 .snapshot-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+a[href="economic-dashboard.html"] .snapshot-box {
+    background: url('economic-dashboard-button.png') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="economic-dashboard.html"] .snapshot-box .access-title {
     width: 100%;
     padding: 1rem;
     border-radius: 0 0 12px 12px;
@@ -845,7 +941,7 @@ a[href="agriculture-business.html"] .snapshot-box .access-title {
 .success-story-image1 {
     grid-column: 1 / 2; /* Image in left column */
     grid-row: 1 / 2;
-    background: url('job-board.jpg') center center/contain no-repeat;
+    background: url('job-search.jpeg') center center/contain no-repeat;
     border-radius: 16px 0 0 16px;
     width: 100%;
     height: 100%;
