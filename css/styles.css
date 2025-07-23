@@ -503,6 +503,24 @@ a[href="agriculture-business.html"] .snapshot-box {
     z-index: 2;
 }
 
+.news-article-image3 {
+    background: url('tariff-news.jpg') center center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-article-image3 .snapshot-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
 .news-article-image3 .snapshot-title {
     width: 100%;
     padding: 1rem;
