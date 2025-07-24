@@ -50,6 +50,108 @@
     color: #fff !important;
 }
 
+/* Topbar Menu Hover Effects */
+.topbar-menu .dropdown-link:hover {
+    color: #D27D2D; /* Change to your mustard/orange color */
+    background-color: rgba(210, 125, 45, 0.1); /* Light background */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Main dropdown items hover */
+.topbar-menu > li > .dropdown-link:hover {
+    color: #D27D2D;
+    background-color: rgba(210, 125, 45, 0.1);
+    /* border-radius: 4px; */
+    /* padding: 8px 12px; */
+    transition: all 0.3s ease;
+    /* font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif; */
+}
+
+/* Dropdown menu items hover */
+.dropdown-menu .dropdown-link:hover {
+    color: #4A0404; /* Blue color for dropdown items */
+    background-color: rgba(74, 4, 4, 0.1);
+    padding-left: 20px; /* Slight indent on hover */
+    transition: all 0.3s ease;
+}
+
+/* Add cursor pointer to show clickability */
+.dropdown-link {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: #222;
+    background: none;
+    border: none;
+    text-align: left;
+    /* font-size: 1rem; */
+    cursor: pointer;
+    transition: background 0.2s;
+
+}
+
+/* Custom styling for Support Centre without dropdown-link class */
+.support-centre-link {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* DROPDOWN MENU FOR TOPBAR*/
+.topbar-menu .dropdown {
+    position: relative;
+}
+.topbar-menu .dropdown-menu {
+    display: none;
+    max-width: 90vw;           /* Prevents dropdown from exceeding viewport width */
+    overflow-x: auto;          /* Adds horizontal scroll if still too wide */
+    position: absolute;
+    flex-wrap: wrap;
+    word-break: break-word; ;
+    top: 100%; /* Attach directly below the parent */
+    right: 0;
+    left: auto;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    min-width: 200px;
+    z-index: 100;
+    padding: 0.5rem 0;
+}
+
+.topbar-menu .dropdown:hover .dropdown-menu,
+.topbar-menu .dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.topbar-menu .dropdown-menu .dropdown-link {
+    color: #222 !important; /* or #000 for pure black */
+}
+
+/* Main dropdown items (Business Resource Hub, Support Tools, etc.) */
+/* .topbar-menu > li {
+    font-size: 18px;
+    font-weight: 500;
+} */
+
+
+
+
+/* Optional: Add underline effect on hover
+.topbar-menu .dropdown-link:hover {
+    text-decoration: underline;
+} */
+
 /* Mustard Banner */
 .mustard-banner {
     position: relative;
@@ -74,7 +176,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 .welcome-banner h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 4rem;
     margin-bottom: 0.5rem;
 }
@@ -238,58 +340,6 @@ body {
 .economic-title h1,
 .economic-title p {
     margin-left: 6.3rem; /* Adjust value as needed */
-}
-
-
-/* DROPDOWN MENU FOR TOPBAR*/
-.topbar-menu .dropdown {
-    position: relative;
-}
-.topbar-menu .dropdown-menu {
-    display: none;
-    max-width: 90vw;           /* Prevents dropdown from exceeding viewport width */
-    overflow-x: auto;          /* Adds horizontal scroll if still too wide */
-    
-    position: absolute;
-    flex-wrap: wrap;
-    word-break: break-word; ;
-    top: 100%; /* Attach directly below the parent */
-    right: 0;
-    left: auto;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    border-radius: 8px;
-    min-width: 200px;
-    z-index: 100;
-    padding: 0.5rem 0;
-}
-.dropdown-link {
-    display: flex;
-    
-    width: 100%;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    color: #222;
-    background: none;
-    border: none;
-    text-align: left;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.topbar-menu .dropdown:hover .dropdown-menu,
-.topbar-menu .dropdown:focus-within .dropdown-menu {
-    display: block;
-}
-
-.topbar-menu .dropdown-menu .dropdown-link {
-    color: #222 !important; /* or #000 for pure black */
-}
-
-/* Main dropdown items (Business Resource Hub, Support Tools, etc.) */
-.topbar-menu > li {
-    font-size: 18px;
-    font-weight: 500;
 }
 
 /* QUICK ACCESS TILES */
@@ -524,7 +574,7 @@ a[href="agriculture-business.html"] .snapshot-box {
 
 
 
-
+/* COMMUNITY DATA SNAPSHOT TILES */
 a[href="economic-dashboard.html"] .snapshot-box {
     background: url('economic-dashboard-button.png') center center/cover no-repeat;
     /* color: #fff; */
@@ -536,6 +586,50 @@ a[href="economic-dashboard.html"] .snapshot-box {
 }
 
 a[href="economic-dashboard.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+a[href="find-a-business.html"] .snapshot-box {
+    background: url('Find-a-business.png') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="find-a-business.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+a[href="job-listing.html"] .snapshot-box {
+    background: url('job-board-main-page.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="job-listing.html"] .snapshot-box .access-title {
     width: 100%;
     padding: 1rem;
     border-radius: 0 0 12px 12px;
