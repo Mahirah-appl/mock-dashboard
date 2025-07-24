@@ -641,6 +641,37 @@ a[href="job-listing.html"] .snapshot-box .access-title {
     z-index: 2;
 }
 
+a[href="community-infrastructure.html"] .snapshot-box {
+    background: url('community-infrastructure.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="community-infrastructure.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* small-business and agriculture resources side bar */
