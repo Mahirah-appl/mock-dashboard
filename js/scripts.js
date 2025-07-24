@@ -758,7 +758,11 @@ fetch('js/age-gender.csv')
             title: {
                 display: true,
                 text: 'Population Count',
-                color: '#000000' // Black title
+                color: '#000000', // Black title
+                font: {
+                  size: 12,
+                  family: 'Arial, Helvetica, sans-serif'
+                }
                 // font: { size: 13 }
             },
             ticks: {
@@ -766,6 +770,10 @@ fetch('js/age-gender.csv')
                     return Math.abs(value);
                 },
                 color: '#000000', // Black tick labels
+                font: {
+                  size: 12,
+                  family: 'Arial, Helvetica, sans-serif'
+                },
                 // font: { size: 10 },
                 stepSize: 50,
             },
@@ -781,11 +789,19 @@ fetch('js/age-gender.csv')
             title: {
                 display: true,
                 text: 'Age Group',
-                color: '#000000' // Black title
+                color: '#000000', // Black title
+                font: {
+                  size: 12,
+                  family: 'Arial, Helvetica, sans-serif'
+                }
                 // font: { size: 13 }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                  size: 12,
+                  family: 'Arial, Helvetica, sans-serif'
+                }
             }
         }
         },
@@ -793,7 +809,10 @@ fetch('js/age-gender.csv')
             legend: { 
                 position: 'bottom',
                 labels: {
-                    font: { size: 12 },
+                    font: {
+                      size: 12,
+                      family: 'Arial, Helvetica, sans-serif'
+                    },
                     color: '#000000' // Black tick labels
                 }
 
@@ -804,14 +823,21 @@ fetch('js/age-gender.csv')
                 text: 'County of Stettler: 2024 Population Age and Gender Pyramid',
                 color: '#000000', // Black title
                 font: {
-                    size: 16
+                  size: 16,
+                  family: 'Arial, Helvetica, sans-serif'
                 }
             },
             tooltip: {
                 padding: 16, // Increase tooltip padding
                 boxPadding: 8, // Chart.js v4+
-                bodyFont: { size: 10 }, // Make tooltip text bigger
-                titleFont: { size: 12 },
+                bodyFont: {
+                  size: 10,
+                  family: 'Arial, Helvetica, sans-serif'
+                }, // Make tooltip text bigger
+                titleFont: {
+                  size: 12,
+                  family: 'Arial, Helvetica, sans-serif'
+                },
                 callbacks: {
                     label: function(context) {
                         const gender = context.dataset.label;
@@ -874,7 +900,8 @@ fetch('js/population-year.csv')
             text: 'County of Stettler: Population by Year',
             color: '#000000', // Black title
             font: {
-              size: 16
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
             }
           },
           legend: {
@@ -886,10 +913,18 @@ fetch('js/population-year.csv')
             title: {
               display: true,
               text: 'Year',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             grid: {
                 display: false,
@@ -899,10 +934,18 @@ fetch('js/population-year.csv')
             title: {
               display: true,
               text: 'Total Population',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         }
@@ -956,7 +999,8 @@ fetch('js/labor-market.csv')
             text: 'County of Stettler: 2024 Local Work Force by Industry',
             color: '#000000', // Black title
             font: {
-              size: 16
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
             }
           },
           legend: {
@@ -968,10 +1012,18 @@ fetch('js/labor-market.csv')
             title: {
               display: true,
               text: 'Local Work Force',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             grid: {
                 display: false,
@@ -981,10 +1033,18 @@ fetch('js/labor-market.csv')
             title: {
               display: true,
               text: 'Industry',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         }
@@ -1038,7 +1098,8 @@ fetch('js/employment.csv')
             text: 'County of Stettler: Employment (Location of Work) by Industry',
             color: '#000000', // Black title
             font: {
-              size: 16
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
             }
           },
           legend: {
@@ -1050,10 +1111,18 @@ fetch('js/employment.csv')
             title: {
               display: true,
               text: 'Local Work Force',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             grid: {
                 display: false,
@@ -1063,10 +1132,18 @@ fetch('js/employment.csv')
             title: {
               display: true,
               text: 'Industry',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         }
@@ -1132,7 +1209,8 @@ fetch('js/participation-rate.csv')
             text: 'County of Stettler: Historical Participation Rates',
             color: '#000000', // Black title
             font: {
-              size: 16
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
             }
           },
           tooltip: {
@@ -1144,6 +1222,7 @@ fetch('js/participation-rate.csv')
             labels: {
               font: {
                 size: 12,
+                family: 'Arial, Helvetica, sans-serif'
               },
               color: '#000000' // Black tick labels
             }
@@ -1160,12 +1239,20 @@ fetch('js/participation-rate.csv')
                 display: false,
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             title: {
               display: true,
               text: 'Year',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           },
           y: {
@@ -1173,10 +1260,18 @@ fetch('js/participation-rate.csv')
             title: {
               display: true,
               text: 'Participation Rate (%)',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         }
@@ -1235,7 +1330,8 @@ fetch('js/building-permit.csv')
             text: 'County of Stettler: Historical Building Permits by Type',
             color: '#000000', // Black title
             font: {
-              size: 16
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
             }
           },
           tooltip: {
@@ -1245,8 +1341,11 @@ fetch('js/building-permit.csv')
           legend: {
             position: 'bottom',
             labels: {
-              color: '#000000' // Black tick labels
-              
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         },
@@ -1257,12 +1356,20 @@ fetch('js/building-permit.csv')
                 display: false,
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             title: {
               display: true,
               text: 'Year',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           },
           y: {
@@ -1270,10 +1377,18 @@ fetch('js/building-permit.csv')
             title: {
               display: true,
               text: 'Number of Permits',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         }
@@ -1355,7 +1470,8 @@ fetch('js/business.csv')
             text: 'County of Stettler: Number of Businesses by Industry',
             color: '#000000', // Black tick labels
             font: {
-              size: 16
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
             }
           },
           tooltip: {
@@ -1369,6 +1485,10 @@ fetch('js/business.csv')
                     size: 8 // <-- Change this value to resize the legend text
                 },
                 color: '#000000', // Black tick labels
+                font: {
+                  size: 12,
+                  family: 'Arial, Helvetica, sans-serif'
+                },
                 usePointStyle: true,
                 pointStyle: 'line'
                 
@@ -1386,12 +1506,20 @@ fetch('js/business.csv')
                 display: false,
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             title: {
               display: true,
               text: 'Year',
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           },
           y: {
@@ -1399,10 +1527,18 @@ fetch('js/business.csv')
             title: {
               display: true,
               text: 'Number of Businesses',
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         }
@@ -1469,7 +1605,8 @@ fetch('js/unemployment-rate.csv')
             text: 'County of Stettler: Historical Unemployment Rates',
             color: '#000000', // Black tick labels
             font: {
-              size: 16
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
             }
           },
           tooltip: {
@@ -1480,7 +1617,8 @@ fetch('js/unemployment-rate.csv')
             position: 'bottom',
             labels: {
               font: {
-                size: 12
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
               },
               color: '#000000' // Black tick labels
               
@@ -1498,12 +1636,20 @@ fetch('js/unemployment-rate.csv')
                 display: false,
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             title: {
               display: true,
               text: 'Year',
-              color: '#000000'
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           },
           y: {
@@ -1511,10 +1657,18 @@ fetch('js/unemployment-rate.csv')
             title: {
               display: true,
               text: 'Unemployment Rate (%)',
-              color: '#000000'
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         }
@@ -1568,7 +1722,8 @@ fetch('js/ForecastEmp.csv')
             text: 'County of Stettler: Employment Forecast by Industry (2024-2029)',
             color: '#000000',
             font: {
-              size: 16
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
             }
           },
           legend: {
@@ -1580,10 +1735,18 @@ fetch('js/ForecastEmp.csv')
             title: {
               display: true,
               text: 'Employment Growth',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             grid: {
                 display: false,
@@ -1593,10 +1756,18 @@ fetch('js/ForecastEmp.csv')
             title: {
               display: true,
               text: 'Industry',
-              color: '#000000' // Black title
+              color: '#000000', // Black title
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             }
           }
         }
@@ -1626,11 +1797,11 @@ fetch('js/TopOcc.csv')
     // Create table HTML
     let tableHTML = `
     <div style="padding: 10px; background: #f8f9fa; border-bottom: 1px solid #ddd; text-align: center;">
-        <h3 style="margin: 0; color: #000000; font-size: 16px; font-family: Arial, sans-serif;">
+        <h3 style="margin: 0; color: #000000; font-size: 15px; font-family: Arial, Helvetica, sans-serif;">
            County of Stettler: Top Occupations by Employment 2024
         </h3>
       </div>
-      <table style="width: 100%; height: 93%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px;">
+      <table style="width: 100%; height: 93%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
         <thead>
           <tr style="background: #1976d2; color: white;">
             <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Rank</th>
@@ -1722,10 +1893,18 @@ fetch('js/OccGrowth.csv')
             title: {
               display: true,
               text: 'Fastest Growing Occupations',
-              color: '#000000'
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             grid: {
                 display: false,
@@ -1735,10 +1914,18 @@ fetch('js/OccGrowth.csv')
             title: {
               display: true,
               text: 'Industry',
-              color: '#000000'
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
             ticks: {
-              color: '#000000' // Black tick labels
+              color: '#000000', // Black tick labels
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
             },
           }
         }
@@ -1768,11 +1955,11 @@ fetch('js/ForecastGaps.csv')
     // Create table HTML
     let tableHTML = `
       <div style="padding: 10px; background: #f8f9fa; border-bottom: 1px solid #ddd; text-align: center;">
-        <h3 style="margin: 0; color: #000000; font-size: 16px; font-family: Arial, sans-serif;">
+        <h3 style="margin: 0; color: #000000; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
           County of Stettler: Top occupations shortages (2024-2029)
         </h3>
       </div>
-      <table style="width: 100%; height: 93%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px;">
+      <table style="width: 100%; height: 93%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
         <thead>
           <tr style="background: #1976d2; color: white;">
             <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Rank</th>
