@@ -976,6 +976,9 @@ a[href="job-listing.html"] .snapshot-box .access-title {
     margin-top: 5px;
 }
 
+#monthlyVisitorChart {
+    margin-right: -3px; /* Adjust the value as needed */
+}
 
 /* LOCAL RESOURCES - SUCCESS STORY SECTION */
 .success-story-section {
