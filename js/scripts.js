@@ -801,7 +801,7 @@ fetch('js/age-gender.csv')
             title: {
                 // font: { size: 18 },
                 display: true,
-                text: '2024 Population Age and Gender Pyramid',
+                text: 'County of Stettler: 2024 Population Age and Gender Pyramid',
                 color: '#000000', // Black title
                 font: {
                     size: 16
@@ -871,7 +871,7 @@ fetch('js/population-year.csv')
         plugins: {
           title: {
             display: true,
-            text: 'Population by Year',
+            text: 'County of Stettler: Population by Year',
             color: '#000000', // Black title
             font: {
               size: 16
@@ -885,7 +885,7 @@ fetch('js/population-year.csv')
           x: {
             title: {
               display: true,
-              text: 'Total Population',
+              text: 'Year',
               color: '#000000' // Black title
             },
             ticks: {
@@ -898,7 +898,7 @@ fetch('js/population-year.csv')
           y: {
             title: {
               display: true,
-              text: 'Year',
+              text: 'Total Population',
               color: '#000000' // Black title
             },
             ticks: {
@@ -941,6 +941,7 @@ fetch('js/labor-market.csv')
         }]
       },
       options: {
+        indexAxis: 'y',
         responsive: false,
         maintainAspectRatio: false,
         animation: {
@@ -952,7 +953,7 @@ fetch('js/labor-market.csv')
         plugins: {
           title: {
             display: true,
-            text: '2021 Local Work Force by Industry',
+            text: 'County of Stettler: 2024 Local Work Force by Industry',
             color: '#000000', // Black title
             font: {
               size: 16
@@ -966,7 +967,7 @@ fetch('js/labor-market.csv')
           x: {
             title: {
               display: true,
-              text: 'Industry',
+              text: 'Local Work Force',
               color: '#000000' // Black title
             },
             ticks: {
@@ -979,7 +980,7 @@ fetch('js/labor-market.csv')
           y: {
             title: {
               display: true,
-              text: 'Local Work Force',
+              text: 'Industry',
               color: '#000000' // Black title
             },
             ticks: {
@@ -992,6 +993,86 @@ fetch('js/labor-market.csv')
   });
 // // Example for a chart with canvas id="pyramidChart"
 // addChartCaption('laborMarketChart', 'Source: Statistics Canada 2021 Community Profile Data');
+
+// STATISTICS DASHBOARD - EMPLOYMENT CHART
+fetch('js/employment.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data;
+
+    // Get unique Local Force Work values
+    const localForceWorks = [...new Set(data.map(row => row['Industry']))].filter(Boolean);
+
+    // Prepare data for the bar chart
+    const totals = localForceWorks.map(lfw =>
+      data
+        .filter(row => row['Industry'] === lfw)
+        .reduce((sum, row) => sum + Number(row['Total'] || 0), 0)
+    );
+
+    const ctx = document.getElementById('employmentChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: localForceWorks,
+        datasets: [{
+          label: 'Total',
+          data: totals,
+          backgroundColor: '#1976d2'
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,         // Animation duration in ms
+          easing: 'easeOutQuart', // Easing function
+          animateScale: true,     // For bar/pie charts: scales up from zero
+          animateRotate: true     // For pie/doughnut charts: rotates in
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'County of Stettler: Employment (Location of Work) by Industry',
+            color: '#000000', // Black title
+            font: {
+              size: 16
+            }
+          },
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Local Work Force',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
+            },
+            grid: {
+                display: false,
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Industry',
+              color: '#000000' // Black title
+            },
+            ticks: {
+              color: '#000000' // Black tick labels
+            }
+          }
+        }
+      }
+    });
+  });
 
 // STATISTICS DASHBOARD - PARTICIPATION RATE CHART
 fetch('js/participation-rate.csv')
@@ -1013,10 +1094,15 @@ fetch('js/participation-rate.csv')
     const datasets = genders.map((gender, idx) => ({
       label: gender,
       data: periods.map(period => {
-        // Sum values for this period/gender (should be one value per period/gender)
-        return data
+        // Sum values for this period/gender and convert to percentage
+        const value = data
           .filter(row => row['Period'] === period && row['Gender'] === gender)
           .reduce((sum, row) => sum + Number(row['OriginalValue'] || 0), 0);
+        
+        // Convert to percentage (if the original value is already a decimal between 0-1)
+        // If it's already a percentage (like 65.5), just return as is
+        // If it's a decimal (like 0.655), multiply by 100
+        return value > 1 ? value : value * 100;
       }),
       fill: false,
       borderColor: colors[idx % colors.length],
@@ -1043,7 +1129,7 @@ fetch('js/participation-rate.csv')
         plugins: {
           title: {
             display: true,
-            text: 'Historical Participation Rates',
+            text: 'County of Stettler: Historical Participation Rates',
             color: '#000000', // Black title
             font: {
               size: 16
@@ -1086,7 +1172,7 @@ fetch('js/participation-rate.csv')
             stacked: false, // Not stacked
             title: {
               display: true,
-              text: 'Participation Rate',
+              text: 'Participation Rate (%)',
               color: '#000000' // Black title
             },
             ticks: {
@@ -1146,7 +1232,7 @@ fetch('js/building-permit.csv')
         plugins: {
           title: {
             display: true,
-            text: 'Historical Building Permits by Type',
+            text: 'County of Stettler: Historical Building Permits by Type',
             color: '#000000', // Black title
             font: {
               size: 16
@@ -1210,8 +1296,26 @@ fetch('js/business.csv')
 
     // Assign a color for each industry
     const colors = [
-      '#1976d2', '#D27D2D', '#388e3c', '#fbc02d', '#7b1fa2', '#0288d1',
-      '#c62828', '#00897b', '#f57c00', '#6d4c41', '#455a64', '#c0ca33'
+      '#1976d2', // Blue
+      '#D27D2D', // Orange/Mustard
+      '#388e3c', // Green
+      '#fbc02d', // Yellow
+      '#7b1fa2', // Purple
+      '#0288d1', // Light Blue
+      '#c62828', // Red
+      '#00897b', // Teal
+      '#f57c00', // Deep Orange
+      '#6d4c41', // Brown
+      '#455a64', // Blue Grey
+      '#c0ca33', // Lime
+      '#9c27b0', // Purple
+      '#e91e63', // Pink
+      '#ff5722', // Deep Red
+      '#607d8b', // Steel Blue
+      '#795548', // Coffee Brown
+      '#ff9800', // Amber
+      '#4caf50', // Bright Green
+      '#9e9e9e'  // Grey
     ];
 
     // Prepare datasets for each industry
@@ -1224,7 +1328,7 @@ fetch('js/business.csv')
           .reduce((sum, row) => sum + Number(row['OriginalValue'] || 0), 0);
       }),
       fill: true,
-      backgroundColor: colors[idx % colors.length] + '99', // semi-transparent
+      backgroundColor: colors[idx % colors.length] + '20', // semi-transparent
       borderColor: colors[idx % colors.length],
       tension: 0.4
     }));
@@ -1248,7 +1352,7 @@ fetch('js/business.csv')
         plugins: {
           title: {
             display: true,
-            text: 'Number of Businesses by Industry',
+            text: 'County of Stettler: Number of Businesses by Industry',
             color: '#000000', // Black tick labels
             font: {
               size: 16
@@ -1264,7 +1368,9 @@ fetch('js/business.csv')
                 font: {
                     size: 8 // <-- Change this value to resize the legend text
                 },
-                color: '#000000' // Black tick labels
+                color: '#000000', // Black tick labels
+                usePointStyle: true,
+                pointStyle: 'line'
                 
             }
           }
@@ -1327,10 +1433,15 @@ fetch('js/unemployment-rate.csv')
     const datasets = genders.map((gender, idx) => ({
       label: gender,
       data: periods.map(period => {
-        // Sum values for this period/gender (should be one value per period/gender)
-        return data
+        // Sum values for this period/gender and convert to percentage
+        const value = data
           .filter(row => row['Period'] === period && row['Gender'] === gender)
           .reduce((sum, row) => sum + Number(row['OriginalValue'] || 0), 0);
+        
+        // Convert to percentage (if the original value is already a decimal between 0-1)
+        // If it's already a percentage (like 65.5), just return as is
+        // If it's a decimal (like 0.655), multiply by 100
+        return value > 1 ? value : value * 100;
       }),
       fill: false,
       borderColor: colors[idx % colors.length],
@@ -1355,7 +1466,7 @@ fetch('js/unemployment-rate.csv')
         plugins: {
           title: {
             display: true,
-            text: 'Historical Unemployment Rates',
+            text: 'County of Stettler: Historical Unemployment Rates',
             color: '#000000', // Black tick labels
             font: {
               size: 16
@@ -1399,7 +1510,7 @@ fetch('js/unemployment-rate.csv')
             stacked: false, // Not stacked
             title: {
               display: true,
-              text: 'Unemployment Rate',
+              text: 'Unemployment Rate (%)',
               color: '#000000'
             },
             ticks: {
@@ -1454,7 +1565,7 @@ fetch('js/ForecastEmp.csv')
         plugins: {
           title: {
             display: true,
-            text: 'Employment Growth by Industry (2024-2029)',
+            text: 'County of Stettler: Employment Forecast by Industry (2024-2029)',
             color: '#000000',
             font: {
               size: 16
@@ -1514,12 +1625,17 @@ fetch('js/TopOcc.csv')
     
     // Create table HTML
     let tableHTML = `
-      <table style="width: 100%; height: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px;">
+    <div style="padding: 10px; background: #f8f9fa; border-bottom: 1px solid #ddd; text-align: center;">
+        <h3 style="margin: 0; color: #000000; font-size: 16px; font-family: Arial, sans-serif;">
+           County of Stettler: Top Occupations by Employment 2024
+        </h3>
+      </div>
+      <table style="width: 100%; height: 93%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px;">
         <thead>
           <tr style="background: #1976d2; color: white;">
-            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">No.</th>
+            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Rank</th>
             <th style="width: 70%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Industry</th>
-            <th style="width: 20%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Top 10 Occupations (2024)</th>
+            <th style="width: 20%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Number of Position</th>
           </tr>
         </thead>
         <tbody>
@@ -1591,7 +1707,7 @@ fetch('js/OccGrowth.csv')
         plugins: {
           title: {
             display: true,
-            text: 'Fastest Growing Occupations in County',
+            text: 'County of Stettler: Fastest Growing Occupations (2024-2029)',
             color: '#000000',
             font: {
               size: 16
@@ -1651,13 +1767,18 @@ fetch('js/ForecastGaps.csv')
     
     // Create table HTML
     let tableHTML = `
-      <table style="width: 100%; height: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px;">
+      <div style="padding: 10px; background: #f8f9fa; border-bottom: 1px solid #ddd; text-align: center;">
+        <h3 style="margin: 0; color: #000000; font-size: 16px; font-family: Arial, sans-serif;">
+          County of Stettler: Top occupations shortages (2024-2029)
+        </h3>
+      </div>
+      <table style="width: 100%; height: 93%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 12px;">
         <thead>
           <tr style="background: #1976d2; color: white;">
-            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">No.</th>
+            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Rank</th>
             <th style="width: 70%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Occupations by 5 Digit NOC</th>
             <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Job Growth</th>
-            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Gap</th>
+            <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Shortages</th>
           </tr>
         </thead>
         <tbody>
@@ -1795,35 +1916,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // STATISTICAL DASHBOARD DATA
 document.addEventListener('DOMContentLoaded', function () {
+  // Set Population as active by default when page loads
+    const populationLink = document.querySelector('.access-link[data-graph="population"]');
+    if (populationLink) {
+        populationLink.querySelector('.access-tile1').classList.add('active');
+    }
+
     document.querySelectorAll('.access-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
 
             const graphType = this.getAttribute('data-graph');
 
-            // Hide economic container only if NOT clicking "economic"
-            if (graphType !== 'economic') {
-                document.getElementById('dashboard-graph-container-economic').style.display = 'none';
+            // Remove active class from all tiles
+            document.querySelectorAll('.access-tile1').forEach(tile => {
+                tile.classList.remove('active');
+            });
+
+            // Add active class to clicked tile
+            this.querySelector('.access-tile1').classList.add('active');
+
+            // Hide economic container only if NOT clicking "population"
+            if (graphType !== 'population') {
+                document.getElementById('dashboard-graph-container-population').style.display = 'none';
             } else {
-                document.getElementById('dashboard-graph-container-economic').style.display = 'block';
-                document.getElementById('dashboard-graph-container-economic').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('dashboard-graph-container-population').style.display = 'block';
+                // document.getElementById('dashboard-graph-container-population').scrollIntoView({ behavior: 'smooth' });
             }
 
             // Hide other containers
-            document.getElementById('dashboard-graph-container-population').style.display = 'none';
+            // document.getElementById('dashboard-graph-container-population').style.display = 'none';
             document.getElementById('dashboard-graph-container-business').style.display = 'none';
             document.getElementById('dashboard-graph-container-forecast').style.display = 'none';
 
             // Show the correct graph container
             if (graphType === 'population') {
                 document.getElementById('dashboard-graph-container-population').style.display = 'block';
-                document.getElementById('dashboard-graph-container-population').scrollIntoView({ behavior: 'smooth' });
-            } else if (graphType === 'business') {
+                // document.getElementById('dashboard-graph-container-population').scrollIntoView({ behavior: 'smooth' });
+            } else 
+            if (graphType === 'business') {
                 document.getElementById('dashboard-graph-container-business').style.display = 'block';
-                document.getElementById('dashboard-graph-container-business').scrollIntoView({ behavior: 'smooth' });
+                // document.getElementById('dashboard-graph-container-business').scrollIntoView({ behavior: 'smooth' });
             } else if (graphType === 'forecast') {
                 document.getElementById('dashboard-graph-container-forecast').style.display = 'block';
-                document.getElementById('dashboard-graph-container-forecast').scrollIntoView({ behavior: 'smooth' });
+                // document.getElementById('dashboard-graph-container-forecast').scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
