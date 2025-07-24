@@ -8,7 +8,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
-
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <div class="grid-container">
@@ -22,43 +24,49 @@
             <div class="topbar-hamburger">&#9776;</div>
             <ul class="topbar-menu">
                 <li><a href="index.html" class="dropdown-link">Home</a></li>
-                <li class="dropdown">Business Resource Hub
+                <li class="dropdown">
+                    <a href="business-resource-hub.html" class="dropdown-link">Business Resource Hub</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" class="dropdown-link">Small Business Resources</a></li>
-                        <li><a href="#" class="dropdown-link">Agriculture Resources</a></li>
+                        <li><a href="small-business.html" class="dropdown-link">Small Business Resources</a></li>
+                        <li><a href="agriculture-business.html" class="dropdown-link">Agriculture Resources</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">Support Tools
+                <li class="dropdown">
+                    <a href="support-tools.html" class="dropdown-link">Support Tools</a>
                     <ul class="dropdown-menu">
                         <li><a href="#" class="dropdown-link">Agriculture Programs and Services</a></li>
                         <li><a href="#" class="dropdown-link">Agri-Tech and Tools</a></li>
                         <li><a href="#" class="dropdown-link">Connect with Experts</a></li>
-                        <li><a href="support-tools.html" class="dropdown-link">Find a Business</a></li>
+                        <li><a href="find-a-business.html" class="dropdown-link">Find a Business</a></li>
                         <li><a href="economic-dashboard.html" class="dropdown-link">Economic Dashboard</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">Training & Skills Development
+                <li class="dropdown">
+                    <a href="training-skills-development.html" class="dropdown-link">Training & Skills Development</a>
                     <ul class="dropdown-menu">
                         <li><a href="training-calendar.html" class="dropdown-link">Training Calendar</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">Local Resources
+                <li class="dropdown">
+                    <a href="local-resources.html" class="dropdown-link">Local Resources</a>
                     <ul class="dropdown-menu">
                         <li><a href="#" class="dropdown-link">Sustainability and Workforce Projects</a></li>
                         <li><a href="#" class="dropdown-link">Volunteer and Contribute</a></li>
                         <li><a href="#" class="dropdown-link">Available Properties</a></li>
-                        <li><a href="#" class="dropdown-link">Community Infrastructure</a></li>
+                        <li><a href="community-infrastructure.html" class="dropdown-link">Community Infrastructure</a></li>
                         <li><a href="#" class="dropdown-link">Zoning and Policy Information</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">Job Supports
+                <li class="dropdown">
+                    <a href="job-supports.html" class="dropdown-link">Job Supports</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" class="dropdown-link">Job Ready Tools</a></li>
-                        <li><a href="#" class="dropdown-link">Employer Listing</a></li>
+                        <li><a href="job-ready-tools-small-business.html" class="dropdown-link">Job Ready Tools & Employer Listing for Small Business</a></li>
+                        <li><a href="job-ready-tools-agriculture.html" class="dropdown-link">Job Ready Tools & Employer Listing for Agriculture</a></li>
                         <li><a href="job-listing.html" class="dropdown-link">Job Board</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">Support Centre
+                <li class="dropdown">
+                    <a href="#" class="dropdown-link">Support Centre</a>
                     <ul class="dropdown-menu">
                         <li><a href="ask-Questions.html" class="dropdown-link">Ask a Question</a></li>
                         <li><a href="#" class="dropdown-link">FAQs</a></li>
@@ -71,8 +79,8 @@
 
         <!-- Welcome Banner -->
         <section class="welcome-banner">
+            <!-- <img src="css/agriculture-2.png" alt="Welcome Banner" style="width: 50%; height: 560px; object-fit: fill; display: block; margin: 0 auto;"> -->
             <h1>Local Resources</h1>
-            <!-- <p>Your one-stop hub for business, agriculture, training, and local resources.</p> -->
         </section>
         <!-- End Welcome Banner -->
 
@@ -80,20 +88,36 @@
          <div class="main-layout">
             <!-- Main Content -->
             <main class="main-content" id="main-content">
-                <div class="success-story-section">
-                    <div class="success-story-image success-story-image-size"></div>
-                    <div class="success-story-content">
-                        <div class="success-story-title">Success Story: Prairie Roots Farm: Growing Beyond the Field</div>
-                        <div class="success-story-text">
-                            <p>In the heart of rural Alberta near Stettler, Prairie Roots Farm began as a small third-generation grain and cattle operation. When a couple, Jenna and Luke MacDonald returned home from university, they saw potential beyond the traditional farming model. With a passion for local food and community, they began attending County of Stettler agricultural workshops and networking events hosted by the Stettler Board of Trade and local agri-tourism networks.</p>
-                            <p>Through these connections, the MacDonalds discovered a growing interest in farm-to-table products. They started small—offering grass-fed beef boxes and heritage grain flour at the Stettler Farmers' Market. With mentorship from a local agri-food processor and help from a regional business accelerator, they invested in on-site cold storage and a small-scale milling operation. Within three years, Prairie Roots expanded to offer packaged flour, honey, and preserved garden goods under their new brand, “Prairie Pantry.”</p>
-                            <p>Support from local business organizations played a crucial role in their growth. The Stettler Regional Board of Trade helped them develop a business plan and access grant funding for value-added equipment, while Community Futures East Parkland provided startup financing and marketing advice. With these supports, they gained the confidence to scale and diversify their offerings.</p>
-                            <p>Today, Prairie Roots products are sold in farm stores across Central Alberta and through a thriving CSA (Community Supported Agriculture) subscription. The MacDonalds attribute their success not just to innovation, but to the strength of rural relationships: “It started with coffee chats and community meetings,” says Jenna. “The people here want to see each other thrive.”</p>
+                <h2 class="snapshot-section-title">Local Resources</h2>
+                <div class="snapshot-banner">
+                    <a href="#" style="text-decoration: none; color: inherit;">
+                        <div class="snapshot-box">
+                            <div class="access-title">Sustainability and Workforce Projects</div> 
                         </div>
-                    </div>
-                    <!-- The right column will show the background image only -->
+                    </a>
+                    <a href="#" style="text-decoration: none; color: inherit;">
+                        <div class="snapshot-box">
+                            <div class="access-title">Volunteer and Contribute</div> 
+                        </div>
+                    </a>
+                    <a href="#" style="text-decoration: none; color: inherit;">
+                        <div class="snapshot-box">
+                            <div class="access-title">Available Properties</div> 
+                        </div>
+                    </a>
+                    <a href="community-infrastructure.html" style="text-decoration: none; color: inherit;">
+                        <div class="snapshot-box">
+                            <div class="access-title">Community Infrastructure</div> 
+                        </div>
+                    </a>
+                    <a href="#" style="text-decoration: none; color: inherit;">
+                        <div class="snapshot-box">
+                            <div class="access-title">Zoning and Policy Information</div> 
+                        </div>
+                    </a>
+                    
                 </div>
-
+            
             </main>
         </div>
         
@@ -108,5 +132,6 @@
 
     <!-- Custom JS -->
     <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 </body>
 </html>
