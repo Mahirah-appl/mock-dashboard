@@ -1955,7 +1955,7 @@ fetch('js/ForecastGaps.csv')
     // Create table HTML
     let tableHTML = `
       <div style="padding: 10px; background: #f8f9fa; border-bottom: 1px solid #ddd; text-align: center;">
-        <h3 style="margin: 0; color: #000000; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
+        <h3 style="margin: 0; color: #000000; font-size: 15px; font-family: Arial, Helvetica, sans-serif;">
           County of Stettler: Top occupations shortages (2024-2029)
         </h3>
       </div>
@@ -2008,7 +2008,556 @@ fetch('js/ForecastGaps.csv')
   });
 
 
+// ECONOMIC DASHBOARD - KPI CHARTS
+fetch('js/business-count-growth.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data;
 
+    // Get unique periods (years) and titles, sorted
+    const periods = [...new Set(data.map(row => row['period']))].filter(Boolean).sort();
+    const titles = [...new Set(data.map(row => row['title']))].filter(Boolean);
+
+    console.log('Periods:', periods);
+    console.log('Titles:', titles);
+    console.log('Data:', data);
+
+    // Assign colors for each category
+    const colors = {
+      'New': '#388e3c',        // Green for new businesses
+      'Closed': '#d32f2f',     // Red for closed businesses  
+      'Net Change': '#1976d2'  // Blue for net change
+    };
+
+    // Prepare datasets for each title category
+    const datasets = titles.map((title) => ({
+      label: title,
+      data: periods.map(period => {
+        const row = data.find(row => row['period'] === period && row['title'] === title);
+        const value = row ? Number(row['value'] || 0) : 0;
+        console.log(`${title} in ${period}: ${value}`);
+        return value;
+      }),
+      backgroundColor: title === 'Net Change' ? 'transparent' : colors[title] || '#666666',
+      borderColor: colors[title] || '#666666',
+      borderWidth: title === 'Net Change' ? 3 : 1,
+      // Make Net Change a line, others stay as bars
+      type: title === 'Net Change' ? 'line' : 'bar',
+      fill: false,
+      tension: title === 'Net Change' ? 0.4 : 0,
+      pointBackgroundColor: title === 'Net Change' ? colors[title] : undefined,
+      pointBorderColor: title === 'Net Change' ? colors[title] : undefined,
+      pointRadius: title === 'Net Change' ? 5 : 0
+    }));
+
+    console.log('Datasets:', datasets);
+
+    const ctx = document.getElementById('businessCountGrowthChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar', // Main chart type
+      data: {
+        labels: periods,
+        datasets: datasets
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,
+          easing: 'easeOutQuart',
+          animateScale: true,
+          animateRotate: true
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'County of Stettler: Business Count/Business Growth',
+            color: '#000000',
+            font: {
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: function(context) {
+                const value = context.parsed.y;
+                return `${context.dataset.label}: ${value >= 0 ? '+' : ''}${value}`;
+              }
+            }
+          },
+          legend: {
+            position: 'bottom',
+            labels: {
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              color: '#000000'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Year',
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Number of Businesses',
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            grid: {
+              color: function(context) {
+                if (context.tick.value === 0) {
+                  return '#000000';
+                }
+                return '#e0e0e0';
+              },
+              lineWidth: function(context) {
+                if (context.tick.value === 0) {
+                  return 2;
+                }
+                return 1;
+              }
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error loading business-count-growth.csv:', error);
+    document.getElementById('businessCountGrowthChart').innerHTML = '<p>Error loading business count growth data.</p>';
+  });
+
+
+// ECONOMIC DASHBOARD - Monthly Dashboard Visitors Chart
+fetch('js/monthly-dashboard-visitor.csv')
+  .then(response => response.text())
+  .then(csv => {
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data.filter(row => row['Period'] && row['Value']); // Filter out empty rows
+
+    // Extract periods and values
+    const periods = data.map(row => row['Period']);
+    const values = data.map(row => Number(row['Value'] || 0));
+
+    console.log('Periods:', periods);
+    console.log('Values:', values);
+
+    const ctx = document.getElementById('monthlyVisitorChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: periods, // Your periods: "Jul 2025", "Aug 2025", etc.
+        datasets: [{
+          label: 'Monthly Visitors',
+          data: values,
+        }]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,
+          easing: 'easeOutQuart',
+          animateScale: true,
+          animateRotate: true
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'County of Stettler: Monthly Dashboard Visitors',
+            color: '#000000',
+            font: {
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: function(context) {
+                const value = context.parsed.y;
+                return `Visitors: ${value}`;
+              }
+            }
+          },
+          legend: {
+            display: false, // Hide legend for single dataset
+            position: 'bottom',
+            labels: {
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              color: '#000000'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Month',
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              maxRotation: 45, // Rotate labels for better readability
+              minRotation: 0
+            },
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Number of Visitors',
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              beginAtZero: true
+            },
+            grid: {
+              color: '#e0e0e0',
+              lineWidth: 1
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error loading monthly-dashboard-visitor.csv:', error);
+    document.getElementById('monthlyVisitorChart').innerHTML = '<p>Error loading monthly visitor data.</p>';
+  });
+
+
+// WORKSHOP PARTICIPANTS CHART
+fetch('js/Workshop-Participants.csv')
+  .then(response => response.text())
+  .then(csv => {
+    // Check if the canvas element exists
+    const canvasElement = document.getElementById('workshopParticipantsChart');
+    if (!canvasElement) {
+      console.error('Canvas element with ID "workshopParticipantsChart" not found');
+      return;
+    }
+
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data.filter(row => row['Period'] && row['Value']); // Filter out empty rows
+
+    // Extract periods and values
+    const periods = data.map(row => row['Period']);
+    const values = data.map(row => Number(row['Value'] || 0));
+
+    console.log('Periods:', periods);
+    console.log('Values:', values);
+
+    const ctx = canvasElement.getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: periods,
+        datasets: [{
+          label: 'Workshop Participants',
+          data: values,
+          backgroundColor: '#388e3c', // Green color
+          borderColor: '#2e7d32',
+          borderWidth: 1,
+          borderRadius: 4,
+          borderSkipped: false
+        }]
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,
+          easing: 'easeOutQuart',
+          animateScale: true,
+          animateRotate: true
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'County of Stettler: Training/Business Development Workshop Participants',
+            color: '#000000',
+            font: {
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: function(context) {
+                const value = context.parsed.y;
+                return `Participants: ${value}`;
+              }
+            }
+          },
+          legend: {
+            display: false, // Hide legend for single dataset
+            position: 'bottom',
+            labels: {
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              color: '#000000'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Month',
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              maxRotation: 45,
+              minRotation: 0
+            },
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Number of Participants',
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              beginAtZero: true
+            },
+            grid: {
+              color: '#e0e0e0',
+              lineWidth: 1
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error loading Workshop-Participants.csv:', error);
+    const errorElement = document.getElementById('workshopParticipantsChart');
+    if (errorElement && errorElement.parentNode) {
+      errorElement.parentNode.innerHTML = '<p>Error loading workshop participants data.</p>';
+    }
+  });
+
+
+// MOST VISITED PAGES CHART
+fetch('js/Most-Visited-Pages.csv')
+  .then(response => response.text())
+  .then(csv => {
+    // Check if the canvas element exists
+    const canvasElement = document.getElementById('mostVisitedChart');
+    if (!canvasElement) {
+      console.error('Canvas element with ID "mostVisitedChart" not found');
+      return;
+    }
+
+    const result = Papa.parse(csv, { header: true });
+    const data = result.data.filter(row => row['Page Name'] && row['Visits']); // Filter out empty rows
+
+    // Extract page names and visits
+    const pageNames = data.map(row => row['Page Name']);
+    const visits = data.map(row => Number(row['Visits'] || 0));
+
+    console.log('Page Names:', pageNames);
+    console.log('Visits:', visits);
+
+    const ctx = canvasElement.getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: pageNames,
+        datasets: [{
+          label: 'Page Visits',
+          data: visits,
+          backgroundColor: ['#1976d2', '#388e3c', '#D27D2D'], // Different colors for each bar
+          borderColor: ['#1565c0', '#2e7d32', '#B8691F'],
+          borderWidth: 1,
+          borderRadius: 4,
+          borderSkipped: false
+        }]
+      },
+      options: {
+        indexAxis: 'y', // This makes it a horizontal bar chart
+        responsive: false,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,
+          easing: 'easeOutQuart',
+          animateScale: true,
+          animateRotate: true
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'County of Stettler: Most Visited Dashboard Pages',
+            color: '#000000',
+            font: {
+              size: 16,
+              family: 'Arial, Helvetica, sans-serif'
+            }
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: function(context) {
+                const value = context.parsed.x;
+                const percent = data[context.dataIndex]['Percent of Total'];
+                return `Visits: ${value} (${percent}%)`;
+              }
+            }
+          },
+          legend: {
+            display: false, // Hide legend for single dataset
+            position: 'bottom',
+            labels: {
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              color: '#000000'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Number of Visits',
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              },
+              beginAtZero: true
+            },
+            grid: {
+              color: '#e0e0e0',
+              lineWidth: 1
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Page Name',
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            ticks: {
+              color: '#000000',
+              font: {
+                size: 12,
+                family: 'Arial, Helvetica, sans-serif'
+              }
+            },
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error loading Most-Visited-Pages.csv:', error);
+    const errorElement = document.getElementById('mostVisitedChart');
+    if (errorElement && errorElement.parentNode) {
+      errorElement.parentNode.innerHTML = '<p>Error loading most visited pages data.</p>';
+    }
+  });
 
 // CHATBOT INTEGRATION
 document.addEventListener('DOMContentLoaded', function() {
@@ -2135,6 +2684,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // document.getElementById('dashboard-graph-container-population').style.display = 'none';
             document.getElementById('dashboard-graph-container-business').style.display = 'none';
             document.getElementById('dashboard-graph-container-forecast').style.display = 'none';
+            document.getElementById('dashboard-graph-container-KPIs').style.display = 'none';
 
             // Show the correct graph container
             if (graphType === 'population') {
@@ -2147,6 +2697,9 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (graphType === 'forecast') {
                 document.getElementById('dashboard-graph-container-forecast').style.display = 'block';
                 // document.getElementById('dashboard-graph-container-forecast').scrollIntoView({ behavior: 'smooth' });
+            } else if (graphType === 'KPIs') {
+                document.getElementById('dashboard-graph-container-KPIs').style.display = 'block';
+                // document.getElementById('dashboard-graph-container-KPIs').scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
