@@ -1011,7 +1011,7 @@ a[href="economic-dashboard.html"] .snapshot-box .access-title {
     max-width: 1500px;         /* Increased from 900px to 1100px */
     margin: 5rem auto 2rem auto;
     padding: 1rem 20px;        /* 2rem top/bottom, 20px left/right */
-    background: #e3f2fd;
+    background: #4A0404;
     border-radius: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     text-align: left;
@@ -1045,7 +1045,7 @@ a[href="economic-dashboard.html"] .snapshot-box .access-title {
     display: inline-block;
     width: 6px;
     height: 3.5rem;
-    background: #4A0404;
+    background: white;
     border-radius: 3px;
     margin: 0 0.5rem;
     vertical-align: middle;
@@ -1122,6 +1122,18 @@ a[href="economic-dashboard.html"] .snapshot-box .access-title {
     cursor: pointer;
     text-align: center;
     overflow: clip;
+}
+
+.access-tile1.active {
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.access-tile1.active .access-title {
+    color: white;
+    font-weight: bold;
 }
 
 
