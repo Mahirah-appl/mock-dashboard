@@ -27,6 +27,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/* MAIN PAGE WELCOME BANNER */
+// ROTATING BANNER
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.banner-slide');
+    let currentSlide = 0;
+    
+    if (slides.length > 1) {
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000); // Change image every 5 seconds
+    }
+});
+
 /* BUSINESS RESOURCES HUB - SMALL BUSINESS RESOURCES  */
 document.addEventListener('DOMContentLoaded', function() {
     const startupLink = document.getElementById('startup-link');
@@ -2472,7 +2487,7 @@ fetch('js/Most-Visited-Pages.csv')
         plugins: {
           title: {
             display: true,
-            text: 'County of Stettler: Most Visited Dashboard Pages',
+            text: 'County of Stettler: Most Visited Dashboard Pages June 2025',
             color: '#000000',
             font: {
               size: 16,
