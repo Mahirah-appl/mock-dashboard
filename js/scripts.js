@@ -1802,8 +1802,8 @@ fetch('js/TopOcc.csv')
     const tableContainer = document.getElementById('topOccChart');
     
     // Set container to match canvas size with rounded corners
-    tableContainer.style.width = '600px';
-    tableContainer.style.height = '500px';
+    // tableContainer.style.width = '600px';
+    // tableContainer.style.height = '500px';
     tableContainer.style.overflowY = 'auto';
     tableContainer.style.border = '1px solid #ddd';
     tableContainer.style.borderRadius = '12px'; // Add curved corners
@@ -1812,11 +1812,11 @@ fetch('js/TopOcc.csv')
     // Create table HTML
     let tableHTML = `
     <div style="padding: 10px; background: #f8f9fa; border-bottom: 1px solid #ddd; text-align: center;">
-        <h3 style="margin: 0; color: #000000; font-size: 15px; font-family: Arial, Helvetica, sans-serif;">
+        <h3 style="margin: 0; color: #000000; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
            County of Stettler: Top Occupations by Employment 2024
         </h3>
       </div>
-      <table style="width: 100%; height: 93%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+      <table style="width: 100%; height: 100%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
         <thead>
           <tr style="background: #1976d2; color: white;">
             <th style="width: 10%; padding: 12px; text-align: left; border: 1px solid #ddd; position: sticky; top: 0; background: #1976d2;">Rank</th>
@@ -1960,8 +1960,8 @@ fetch('js/ForecastGaps.csv')
     const tableContainer = document.getElementById('forecastGapsChart');
     
     // Set container to match canvas size with rounded corners
-    tableContainer.style.width = '600px';
-    tableContainer.style.height = '500px';
+    // tableContainer.style.width = '600px';
+    // tableContainer.style.height = '500px';
     tableContainer.style.overflowY = 'auto';
     tableContainer.style.border = '1px solid #ddd';
     tableContainer.style.borderRadius = '12px';
@@ -1971,7 +1971,7 @@ fetch('js/ForecastGaps.csv')
     let tableHTML = `
       <div style="padding: 10px; background: #f8f9fa; border-bottom: 1px solid #ddd; text-align: center;">
         <h3 style="margin: 0; color: #000000; font-size: 15px; font-family: Arial, Helvetica, sans-serif;">
-          County of Stettler: Top occupations shortages (2024-2029)
+          County of Stettler: Top Occupations Shortages (2024-2029)
         </h3>
       </div>
       <table style="width: 100%; height: 93%; border-collapse: collapse; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
@@ -2006,7 +2006,7 @@ fetch('js/ForecastGaps.csv')
     // ADD THE NOTE AS A TABLE ROW
     tableHTML += `
           <tr style="background: #f8f9fa;">
-            <td colspan="4" style="padding: 12px; border: 1px solid #ddd; text-align: center; font-size: 11px; color: #666; font-style: italic;">
+            <td colspan="4" style="padding: 12px; border: 1px solid #ddd; text-align: center; font-size: 12px; color: #666; font-style: italic;">
               <strong>Note:</strong> + indicates a surplus of workers in a specific occupation and - indicates a shortage of workers.
             </td>
           </tr>
