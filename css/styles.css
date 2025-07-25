@@ -686,9 +686,181 @@ a[href="community-infrastructure.html"] .snapshot-box .access-title {
     z-index: 2;
 }
 
+a[href="agri-progms-services.html"] .snapshot-box {
+    background: url('agri-programs.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
 
+a[href="agri-progms-services.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
 
+a[href="agri-tech-tools.html"] .snapshot-box {
+    background: url('agri-technology.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
 
+a[href="agri-tech-tools.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+a[href="connect-with-experts.html"] .snapshot-box {
+    background: url('connect-with-experts.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="connect-with-experts.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+a[href="training-calendar.html"] .snapshot-box {
+    background: url('training-calendar.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="training-calendar.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+a[href="volunteer-and-contribute.html"] .snapshot-box {
+    background: url('volunteer-contribute.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="volunteer-and-contribute.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+a[href="avail-properties.html"] .snapshot-box {
+    background: url('avail-properties.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="avail-properties.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+a[href="zoning-policy-information.html"] .snapshot-box {
+    background: url('zoning-policy.jpg') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="zoning-policy-information.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+a[href="sustain-workforce-projects.html"] .snapshot-box {
+    background: url('sustainability-workforce.avif') center center/cover no-repeat;
+    /* color: #fff; */
+    /* width: 300px;
+    height: 200px; */
+    /* background-image: url('success-story.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
 
 
 
