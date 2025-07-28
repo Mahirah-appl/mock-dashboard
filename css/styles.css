@@ -1605,7 +1605,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
 
     /* Static banner images */
     .banner-image {
-        width: 100%;
+        width: 110%;
         height: 400px; /* Match banner height */
         object-fit: fill;
         display: block;
@@ -1615,7 +1615,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
     /* Rotating banner carousel */
     .banner-carousel {
         position: relative;
-        width: 100%;
+        width: 110%;
         height: 400px; /* Match banner height */
         overflow: hidden;
     }
@@ -1624,7 +1624,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 110%;
         height: 400px; /* Match banner height */
         object-fit: fill;
         opacity: 0;
