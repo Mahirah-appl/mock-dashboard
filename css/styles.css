@@ -1599,7 +1599,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
     }
     /* Welcome Banner consistent sizing */
     .welcome-banner1 {
-        width: 50%;
+        width: 40%;
         height: 400px; /* Reduced from 560px for smaller screens */
         overflow: hidden;
         padding: 0;
