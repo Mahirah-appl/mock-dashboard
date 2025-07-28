@@ -234,7 +234,7 @@
     left: 0;
     width: 100%;
     height: 560px;
-    object-fit: fill;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
@@ -242,7 +242,6 @@
 
 .banner-slide.active {
     opacity: 1;
-    object-fit: fill;
 }
 
 body {
@@ -1462,53 +1461,6 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
 
 
 /* ---------------- MEDIA QUERIES ---------------- */
-@media (min-width: 3094px) {
-    /* Welcome Banner consistent sizing */
-    .welcome-banner1 {
-        width: 100%;
-        height: 800px; /* Reduced from 560px for smaller screens */
-        overflow: hidden;
-        padding: 0;
-        text-align: center;
-        margin-top: 0;
-        margin-left: -1vw;
-        margin-right: 0px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    }
-    /* Static banner images */
-    .banner-image {
-        width: 100%;
-        height: 800px; /* Match banner height */
-        object-fit: fill;
-        display: block;
-        margin: 0 auto;
-    }
-
-    /* Rotating banner carousel */
-    .banner-carousel {
-        position: relative;
-        width: 100%;
-        height: 800px; /* Match banner height */
-        overflow: hidden;
-    }
-
-    .banner-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 800px; /* Match banner height */
-        object-fit: fill;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    .banner-slide.active {
-        opacity: 1;
-        object-fit: fill;
-    }
-
-}
 @media (min-width: 2560px) {
     /* Welcome Banner consistent sizing */
     .welcome-banner1 {
