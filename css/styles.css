@@ -1460,8 +1460,145 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
 }
 
 
-
 /* ---------------- MEDIA QUERIES ---------------- */
+@media (max-width: 1280px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .main-layout {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        flex-direction: column;
+    }
+    .success-story-section {
+        grid-template-columns: 1fr;
+        min-height: 250px;
+    }
+    .success-story-image,
+    .success-story-image1 {
+        min-height: 150px;
+        border-radius: 16px 16px 0 0;
+    }
+    .success-story-content {
+        border-radius: 0 0 16px 16px;
+        max-width: 100%;
+        padding: 1rem;
+    }
+    /* .welcome-banner,
+    .welcome-banner1 {
+        padding: 4rem 0.5rem;
+        font-size: 1.7rem;
+    } */
+    .calendar-container,
+    .events-list {
+        padding: 1rem;
+        min-width: 0;
+    }
+    .topbar {
+        height: 100px;
+        font-size: 0.95rem;
+        padding: 0 1px;
+    }
+    .topbar-title {
+        font-size: 1rem;
+        margin-left: 0.3rem;
+    }
+    .topbar-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100vw;
+        background: #4A0404;
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: 1rem 0;
+        z-index: 3000;
+    }
+    .topbar-menu.show {
+        display: flex;
+    }
+    .topbar-hamburger {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 2rem;
+        color: #fff;
+        margin-right: 1rem;
+    }
+    /* Welcome Banner consistent sizing */
+    .welcome-banner1 {
+        width: 103%;
+        height: 400px; /* Reduced from 560px for smaller screens */
+        overflow: hidden;
+        padding: 0;
+        text-align: center;
+        margin-top: 0;
+        margin-left: -1vw;
+        margin-right: 0px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    /* Static banner images */
+    .banner-image {
+        width: 100%;
+        height: 400px; /* Match banner height */
+        object-fit: fill;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Rotating banner carousel */
+    .banner-carousel {
+        position: relative;
+        width: 100%;
+        height: 400px; /* Match banner height */
+        overflow: hidden;
+    }
+
+    .banner-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px; /* Match banner height */
+        object-fit: fill;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .banner-slide.active {
+        opacity: 1;
+        object-fit: fill;
+    }
+
+    /* Navigation dots positioning */
+    .banner-dots {
+        position: absolute;
+        bottom: 15px; /* Adjust for smaller banner */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+        background-color: #D27D2D;
+    }
+}
+
 @media (max-width: 760px) {
     .topbar {
         height: 100px;
