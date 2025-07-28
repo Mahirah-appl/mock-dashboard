@@ -1575,7 +1575,6 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
         margin-left: 0.3rem;
     }
     .topbar-menu {
-        display: none;
         position: absolute;
         top: 60px;
         left: 0;
@@ -1587,12 +1586,9 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
         padding: 1rem 0;
         z-index: 3000;
     }
-    .topbar-menu.show {
-        display: flex;
-    }
     /* Welcome Banner consistent sizing */
     .welcome-banner1 {
-        width: 110%;
+        width: 150%;
         height: 400px; /* Reduced from 560px for smaller screens */
         overflow: hidden;
         padding: 0;
@@ -1605,7 +1601,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
 
     /* Static banner images */
     .banner-image {
-        width: 110%;
+        width: 130%;
         height: 400px; /* Match banner height */
         object-fit: fill;
         display: block;
@@ -1615,7 +1611,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
     /* Rotating banner carousel */
     .banner-carousel {
         position: relative;
-        width: 110%;
+        width: 130%;
         height: 400px; /* Match banner height */
         overflow: hidden;
     }
@@ -1624,7 +1620,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
         position: absolute;
         top: 0;
         left: 0;
-        width: 110%;
+        width: 130%;
         height: 400px; /* Match banner height */
         object-fit: fill;
         opacity: 0;
