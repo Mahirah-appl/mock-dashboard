@@ -1530,7 +1530,8 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
     }
 }
 
-@media (max-width: 1547px) {
+/* FOR LAPTOPS */
+@media (min-width: 1280px) {
     .charts-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
