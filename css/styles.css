@@ -1600,7 +1600,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
     }
     /* Welcome Banner consistent sizing */
     .welcome-banner1 {
-        width: 30%;
+        width: 70%;
         height: 400px; /* Reduced from 560px for smaller screens */
         overflow: hidden;
         padding: 0;
@@ -1613,7 +1613,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
 
     /* Static banner images */
     .banner-image {
-        width: 20%;
+        width: 50%;
         height: 400px; /* Match banner height */
         object-fit: fill;
         display: block;
@@ -1623,7 +1623,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
     /* Rotating banner carousel */
     .banner-carousel {
         position: relative;
-        width: 20%;
+        width: 50%;
         height: 400px; /* Match banner height */
         overflow: hidden;
     }
@@ -1632,7 +1632,7 @@ a[href="sustain-workforce-projects.html"] .snapshot-box .access-title {
         position: absolute;
         top: 0;
         left: 0;
-        width: 20%;
+        width: 50%;
         height: 400px; /* Match banner height */
         object-fit: fill;
         opacity: 0;
